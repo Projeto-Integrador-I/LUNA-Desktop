@@ -1,0 +1,52 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url("../../assets/background.png");
+  padding: 7rem;
+
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 610px;
+  height: 680px;
+  border-radius: 15px;
+  background-color: #000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+form {
+  display: grid;
+  justify-content: center;
+}
+
+form > input {
+  width: 550px;
+  height: 50px;
+
+  margin: 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  background-color: rgb(214, 214, 214);
+}
+
+form > button {
+  justify-self: center;
+  width: 270px;
+  height: 60px;
+
+  margin-top: 45px;
+
+  border: none;
+  border-radius: 10px;
+
+  color: white;
+  font-size: 32px;
+  background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
+}
