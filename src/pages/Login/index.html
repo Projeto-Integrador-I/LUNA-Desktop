@@ -16,10 +16,17 @@
         <!-- TODO: Arrumar Path -->
         <img src="../../assets/logo.png" alt="Logo" style="margin-bottom: 60px">
         <form action="">
-            <input type="text" name="Login" placeholder="Login">
+            <input id="demo"  type="text" name="Login" placeholder="Login" >
             <input type="password" name="Senha" placeholder="Senha">
-            <button>Entrar</button>
+            <button onclick="welcome()">Entrar</button>
         </form>
     </div>
 </body>
+
+<script>
+    function welcome() 
+    {
+        alert("Agora eu tenho uma função");
+    }
+    </script>
 </html>

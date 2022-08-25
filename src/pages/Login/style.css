@@ -33,6 +33,11 @@ form > input {
   border: none;
   border-radius: 10px;
 
+  font-family: Arial;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+
   background-color: rgb(214, 214, 214);
 }
 
@@ -47,6 +52,6 @@ form > button {
   border-radius: 10px;
 
   color: white;
-  font-size: 32px;
+  font-size: 25px;
   background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
 }
