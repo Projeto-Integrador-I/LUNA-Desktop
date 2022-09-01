@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap');
+
+body {
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden !important;
+    /* overflow: hidden; */
+    font-family: 'Inter', sans-serif;
+    background-color: #1F1F1F;
+}
+
+.header
+{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 10%;
+    padding: 10px 30px;
+    position: relative;
+}
+
+.logo
+{
+    height: 80%;
+}
+
+.menu-options
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-option
+{
+    margin-left: 50px;
+    font-style: none;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+.menu-option a 
+{
+    color: #717171;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.menu-option a:hover
+{
+    color: #FFF;
+}
+
+.option-active
+{
+    color: #FFF !important;
+}
+
+#searchInput
+{
+    position: relative;
+    border: none;
+    width: 600px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#searchInput::after
+{
+    content: "";
+    z-index: 10;
+    width: 10px;
+    position: relative;
+    height: 10px;
+}
+
+#searchInput:focus
+{
+    border: none;
+    outline: none;
+}
+
+.perfil
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-size: 20px;
+    align-self: flex-end;
+    position: absolute;
+    top: 40px;
+    right: 130px;
+}
+
+.perfil img
+{
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.slider
+{
+    margin-bottom: 30px;
+}
+
+.slider img
+{
+    width: 100%;
+}
+
+.title
+{
+    font-size: 32px;
+    font-weight: 400;
+    color: #FFF;
+    margin-left: 30px;
+}
+
+.articles
+{
+    display: grid;
+    grid-template-columns: repeat( 6, 300px);
+    margin: 0px 30px;
+}
+
+.articles img
+{
+    border-radius: 10px;
+}
