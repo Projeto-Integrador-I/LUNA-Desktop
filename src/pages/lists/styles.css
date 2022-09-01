@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&display=swap');
+body {
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden !important;
+    font-family: 'Inter', sans-serif;
+    background-color: #1F1F1F;
+    position: fixed;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 10%;
+    padding: 10px 30px;
+    position: relative;
+}
+
+.logo {
+    height: 80%;
+}
+
+.menu-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-option {
+    margin-left: 50px;
+    font-style: none;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+.menu-option a {
+    color: #717171;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.menu-option a:hover {
+    color: #FFF;
+}
+
+.option-active {
+    color: #FFF !important;
+}
+
+#searchInput {
+    position: relative;
+    border: none;
+    width: 600px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#searchInput::after {
+    content: "";
+    z-index: 10;
+    width: 10px;
+    position: relative;
+    height: 10px;
+}
+
+#searchInput:focus {
+    border: none;
+    outline: none;
+}
+
+.perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-size: 20px;
+    align-self: flex-end;
+    position: absolute;
+    top: 40px;
+    right: 130px;
+}
+
+.perfil img {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.main_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+    justify-content: space-evenly;
+}
+
+.main_container div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.main_container img {
+    width: 20%;
+}
+
+.main_container h2 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    margin: 20px;
+    color: whitesmoke;
+    font-weight: 500;
+}
+
+.main_container h4 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    margin: 0px 20px 20px 20px;
+    color: whitesmoke;
+    font-weight: 300;
+}
+
+.main_container button {
+    width: 25%;
+    padding: 20px 0px 20px 0px;
+    background: linear-gradient(180deg, #483D7C 0%, #150B43 161.67%);
+    border-radius: 10px;
+    border: none;
+    color: whitesmoke;
+    cursor: pointer;
+    font-size: 20px;
+}
