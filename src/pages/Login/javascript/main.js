@@ -1,5 +1,6 @@
-const button = document.getElementsByClassName('enter')[0]
+const button = document.getElementById("enter");
+const inputs = document.getElementsByClassName("input");
 
 button.onclick = () => {
-    alert('Hello World')
-}
+  alert("Hello World");
+};
