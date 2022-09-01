@@ -1,10 +1,15 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-image: url("../../assets/background.png");
-  padding: 15%;
+
+  max-height: 100vh;
+  min-height: 100vh;
+
+  margin: 0;
 
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .content {
