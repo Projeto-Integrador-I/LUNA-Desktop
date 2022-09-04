@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+        <img src="../../assets/moon.svg" alt="Luna logo" class="logo">
+        <ul class="menu-options">
+            <li class="menu-option"><a href="/" class="option-active">Home</a></li>
+            <li class="menu-option"><a href="/">Listas</a></li>
+            <li class="menu-option"><a id="searchButton" style="display: none;">Pesquisas</a></li>
+            <input type="text" id="searchInput" placeholder="Digite aqui...">
+        </ul>
+        <div class="perfil">
+            <span>Fernando</span>
+            <img src="../../assets/User.svg" alt="user-icon" srcset="">
+        </div>
+    </header>
+
+    <div class="main_empty_container">
+        <div class="empty_list">
+            <img src="../../assets/sad-face.svg" alt="sad face">
+            <h2>Está tão vazio aqui!</h2>
+            <h4>Parece que você não possui nenhuma lista ainda...</h4>
+            <button onclick="">
+                CRIAR LISTA
+            </button>
+        </div>
+    </div>
+
+    <div class="main_container">
+        <ul id="list">
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
