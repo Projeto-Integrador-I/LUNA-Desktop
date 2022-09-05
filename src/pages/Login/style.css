@@ -82,6 +82,21 @@ form > input {
   margin: 0;
 }
 
+#forgotPass{
+  margin-left: 65%;
+}
+
+#signupLink{
+  text-decoration: none;
+}
+ 
+#signupLink:hover{
+  text-decoration: underline;
+}
+
 .text-buttons:hover {
   text-decoration: underline;
 }
+
+
+

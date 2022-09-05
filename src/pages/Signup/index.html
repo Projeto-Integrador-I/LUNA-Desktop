@@ -15,15 +15,16 @@
     <div class="content">
         <img src="../../assets/logo.png" alt="Logo" class="logo">
         <form action="">
-            <input type="text" name="Login" placeholder="Login" id="login" >
+            <input type="text" name="name" placeholder="Nome completo" id="name" >
+            <input type="text" name="username" placeholder="Nome de Usuário" id="username" >
+            <input type="email" name="email" placeholder="Email" id="email" >
             <input type="password" name="Senha" placeholder="Senha" id="pass">
-            <p class="text-buttons" id="forgotPass">Esqueci minha senha</p>
-
-            <button class="enter"> Entrar </button>
-            <a class="text-buttons" id="signupLink" href="../Signup/index.html">Não possui conta? Cadastre-se</a>
+            <input type="password" name="SenhaRepeat" placeholder="Repita sua Senha" id="passrepeat">
+            <button class="signup"> Cadastrar </button>
+            <a id="returnLink" href="../Login/index.html" :hover>Retornar à página de Login</a>
         </form>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="./javascript/main.js"></script>
+<script src="./script.js"></script>
 </html>
