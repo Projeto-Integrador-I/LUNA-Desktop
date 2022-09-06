@@ -52,7 +52,7 @@ form > input {
   background-color: rgb(214, 214, 214);
 }
 
-.enter {
+#enter {
   justify-self: center;
   width: 270px;
   height: 60px;
