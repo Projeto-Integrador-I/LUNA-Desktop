@@ -15,82 +15,61 @@ body {
     align-items: center;
     width: 100vw;
     height: 10%;
-    padding: 10px 30px;
+    padding: 10px 100px;
     position: relative;
-}
-
-.logo {
+  }
+  
+  .logo {
     height: 80%;
-}
-
-.menu-options {
+  }
+  
+  .menu-options {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     margin: 0;
     padding: 0;
-}
-
-.menu-option {
+    width: 60%;
+  }
+  
+  .menu-option {
     margin-left: 50px;
     font-style: none;
     list-style: none;
     text-transform: uppercase;
-}
-
-.menu-option a {
+  }
+  
+  .menu-option a {
     color: #717171;
     text-decoration: none;
     font-weight: 500;
     font-size: 20px;
-}
-
-.menu-option a:hover {
-    color: #FFF;
-}
-
-.option-active {
-    color: #FFF !important;
-}
-
-#searchInput {
-    position: relative;
-    border: none;
-    width: 600px;
-    padding: 10px;
-    font-size: 20px;
-    border-radius: 10px;
-}
-
-#searchInput::after {
-    content: "";
-    z-index: 10;
-    width: 10px;
-    position: relative;
-    height: 10px;
-}
-
-#searchInput:focus {
-    border: none;
-    outline: none;
-}
-
-.perfil {
+  }
+  
+  .menu-option a:hover {
+    color: #fff;
+  }
+  
+  .option-active {
+    color: #fff !important;
+  }
+  
+  .perfil {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFF;
+    color: #fff;
     font-size: 20px;
     align-self: flex-end;
     position: absolute;
     top: 40px;
-    right: 130px;
-}
-
-.perfil img {
+    right: 330px;
+  }
+  
+  .perfil img {
     cursor: pointer;
     margin-left: 10px;
-}
+  }
 
 .main_empty_container {
     display: flex;
