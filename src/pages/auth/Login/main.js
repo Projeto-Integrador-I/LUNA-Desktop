@@ -8,9 +8,7 @@ function enter(event) {
     let inputPass = document.querySelector('#pass').value
 
     if (inputUser == 'admin' && inputPass == 'admin') {
-        //window.location.href ="../Home/home.html"
-
-        //    alert("Agora eu tenho uma função");
+        window.location.href ="../Home/home.html"
     } else {
         window.alert("Usuário ou senha incorreto!")
     }
