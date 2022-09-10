@@ -1,0 +1,91 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url("../../../assets/background.png");
+
+  max-height: 100vh;
+  min-height: 100vh;
+
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  height: 100%;
+
+  padding: 2% 0;
+
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.856);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*  flex-direction: column; */
+}
+
+.logo {
+  margin-bottom: 40px;
+  margin-left: 20px;
+  width: 250px;
+}
+
+.form {
+  display: grid;
+  justify-content: center;
+}
+
+.form > input {
+  width: 350px;
+  height: 50px;
+
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 18px;
+  padding-left: 15px;
+
+  background-color: rgb(214, 214, 214);
+}
+
+.register {
+  justify-self: center;
+  width: 270px;
+  height: 60px;
+
+  margin-top: 40px;
+  margin-bottom: 5px;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  color: white;
+  font-size: 32px;
+  background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
+}
+
+#returnLink {
+  color: white;
+  font-size: 14px;
+
+  justify-self: center;
+  cursor: pointer;
+
+  text-decoration: none;
+
+  display: flex;
+
+  margin: 0;
+}
+
+#returnLink:hover {
+  text-decoration: underline;
+}
