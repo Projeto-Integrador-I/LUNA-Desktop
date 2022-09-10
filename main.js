@@ -7,7 +7,7 @@ function createWindow() {
     icon: "./src/assets/favicon.ico",
   });
 
-  win.loadFile("./src/pages/Login/index.html");
+  win.loadFile("./src/pages/auth/Login/index.html");
 }
 
 app.on("ready", createWindow);
