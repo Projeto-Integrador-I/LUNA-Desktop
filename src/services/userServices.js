@@ -1,5 +1,14 @@
 const url= 'http://26.2.1.64:8080/luna/'
 
+axios.interceptors.request.use((config) => {
+    let token = Cookies.get('luna/authenticate')
+    if (token) config.headers.Authorization = `Bearer ${token}`
+    console.log(config)
+    return config
+}, error => {
+    return Promise.reject(error) 
+})
+
 function register(user){
     axios.post(url + 'users', newUser)
     .then(response => {
@@ -14,9 +23,8 @@ export function authenticate( user ){
                 JSON.stringify( user ), 
                 {headers: {"Content-Type": "application/json"}})
     .then(res =>  { 
-        let token = res.data.token;
-        console.log(token);
-        //retornar esse token pra algum lugar   
+        const token = res.data.token;
+        Cookies.set('luna/authenticate', token)
      } )
     .catch(err => console.log(err))
 }
