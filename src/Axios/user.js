@@ -1,5 +1,4 @@
 
-// export to class login.js
 export class UserLog{
     constructor(username,password) {
         this.username = username
@@ -7,7 +6,6 @@ export class UserLog{
     }
 }
 
-// Export to class signup.js
 export class UserReg{
     constructor(login,email,name,password) {
         this.login = login

@@ -16,5 +16,5 @@ function enter(event) {
     console.log(user.username);
     console.log(user.password);
 
-    authenticate(user)
+    authenticate(user);
 }

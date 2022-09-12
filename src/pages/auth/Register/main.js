@@ -1,4 +1,7 @@
 const register_btn = document.querySelector('button.register')
+import { UserReg } from '../../../Axios/user.js'
+import { registerUser } from '../../../services/userServices.js'
+/*
 import { hash } from 'bcrypt'
 
 var fullName = document.querySelector('#name')
@@ -36,3 +39,36 @@ function encodePasswords(pass, repeatPass) {
     console.log(passHashed);
   })
 }
+*/
+
+register_btn.addEventListener('click', enter)
+
+const url = 'http://26.2.1.64:8080/luna/'
+
+
+function enter(event) {
+    event.preventDefault()
+
+    const user = new UserReg (document.querySelector('#user').value,
+                              document.querySelector('#email').value,
+                              document.querySelector('#name').value,
+                              document.querySelector('#pass').value
+                              );
+
+    if (document.querySelector('#passrepeat').value != user.password) {
+      //Mensagem na tela que as senhas são diferentes
+      console.log('senhas são diferentes')      
+    } else {
+      console.log(user.login);
+      console.log(user.email);
+      console.log(user.name);
+      console.log(user.password);
+
+      registerUser(user);
+    }
+    
+
+    
+}
+
+
