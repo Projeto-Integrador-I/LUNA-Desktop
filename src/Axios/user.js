@@ -14,3 +14,9 @@ export class UserReg{
         this.password = password
     }
 }
+/*
+export class ActiveUser{
+    constructor()
+
+}
+*/

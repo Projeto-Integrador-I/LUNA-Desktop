@@ -1,5 +1,5 @@
 import { UserLog } from '../../../Axios/user.js'
-import { authenticate } from '../../../services/userServices.js'
+import { authenticate, getId, getUser } from '../../../services/userServices.js'
 
 
 const enter_btn = window.document.querySelector('button.enter')
@@ -17,4 +17,5 @@ function enter(event) {
     console.log(user.password);
 
     authenticate(user);
+    getId(user.username);
 }
