@@ -1,6 +1,6 @@
 
 const url= 'http://26.2.1.64:8080/luna/'
-
+/*
 axios.interceptors.request.use((config) => {
     let token = Cookies.get('luna/authenticate')
     if (token) config.headers.Authorization = `Bearer ${token}`
@@ -9,7 +9,7 @@ axios.interceptors.request.use((config) => {
 }, error => {
     return Promise.reject(error) 
 })
-
+*/
 // função para autenticar o usuário
 export function authenticate( user ){
     //passa o usuário (login + senha) para autenticação
@@ -20,7 +20,8 @@ export function authenticate( user ){
     //pega o token de autenticação e seta nos cockies.
         const token = res.data.token;
         console.log("resposta authenticate = ",token);
-        Cookies.set('luna/authenticate', token)
+
+        //Cookies.set('luna/authenticate', token)
         } )
     .catch(err => console.log(err))
 }
@@ -59,6 +60,7 @@ export function getId( username ){
         for (const user of Object.keys(value)){
             if(username == value[user].login){ 
                 getUser(value[user].id);
+                getUser(value[user].password);
             }
         }
     });
@@ -67,10 +69,12 @@ export function getId( username ){
 // função para pegar os dados de um usuário especifico
 export function getUser( id ) {
     //necessário passar o id e a autorização (não consegui passar pelos Cookies, então copiei e colei um token ativo)
-    axios.get(url + 'users/' + id,{headers: {"Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhIiwiZXhwIjoxNjYzNTY5MjE1LCJpYXQiOjE2NjM1NTEyMTV9.9LWKw24nczij_B13y4jIHApEZnv3NtnWgJ2J-PeNmdlrOq8fNkOSZRkW3ErN-0E4sJHlcTfVqKHSiHi5U22Fmw"}})     
+    axios.get(url + 'users/' + id,{headers: {"Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY2MzkwNTcwNCwiaWF0IjoxNjYzODg3NzA0fQ.wRrCO2owWwvE8RlQEsdKplW6948vXis9MYYrIfJeo1WIO3kEOIyOQjl9I2E4AD2XXgP8JcLxs-0p_TAi3nXvEA"}})     
     .then(res => {
         console.log("gET USER ="+ JSON.stringify(res))
         //TODO criar um usuário ativo
     })
     .catch(err => console.log(err))
 }
+
+
