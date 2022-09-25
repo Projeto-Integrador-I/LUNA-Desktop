@@ -8,7 +8,7 @@ enter_btn.addEventListener('click', enter)
 const url = 'http://26.2.1.64:8080/luna/'
 
 
-function enter(event) {
+async function enter(event) {
     event.preventDefault()
 
     const user = new UserLog (document.querySelector('#login').value,
@@ -16,6 +16,6 @@ function enter(event) {
     console.log(user.username);
     console.log(user.password);
 
-    authenticate(user);
-    getId(user.username);
+    await authenticate(user);
+     getId(user.username);
 }
