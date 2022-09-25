@@ -48,6 +48,7 @@ export async function authenticate( user ){
     //pega o token de autenticação e seta nos cockies.
         const token = res.data.token;
         localStorage.setItem('luna/authenticate', token)
+
         } )
     .catch(err => console.log(err))
 }
@@ -93,6 +94,7 @@ export function getId( username ){
         for (const user of Object.keys(value)){
             if(username == value[user].login){ 
                 getUser(value[user].id);
+                getUser(value[user].password);
             }
         }
     });
@@ -115,3 +117,5 @@ export function getUser( id ) {
     })
     .catch(err => console.log(err))
 }
+
+
