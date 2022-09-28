@@ -1,21 +1,23 @@
-import { UserLog } from '../../../Axios/user.js'
-import { authenticate, getId, getUser } from '../../../services/userServices.js'
-
+import { authenticate } from '../../../services/userServices.js'
 
 const enter_btn = window.document.querySelector('button.enter')
 enter_btn.addEventListener('click', enter)
 
 const url = 'http://26.2.1.64:8080/luna/'
 
-
 async function enter(event) {
     event.preventDefault()
 
-    const user = new UserLog (document.querySelector('#login').value,
-                           document.querySelector('#pass').value);
-    console.log(user.username);
-    console.log(user.password);
+    let login = document.querySelector('#login').value;
+    let password = document.querySelector('#pass').value;
 
-    await authenticate(user);
-     getId(user.username);
+    let validation = await authenticate(login,password);
+    
+    if(validation){
+        
+        window.location.replace("../../app/Home/home.html");
+        
+    } else {
+        console.log("Não autenticado");
+    }
 }

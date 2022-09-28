@@ -1,7 +1,13 @@
 const register_btn = document.querySelector('button.register')
-import { UserReg } from '../../../Axios/user.js'
 import { registerUser } from '../../../services/userServices.js'
+
+
+register_btn.addEventListener('click', enter)
+
+const url = 'http://26.2.1.64:8080/luna/'
+
 /*
+
 import { hash } from 'bcrypt'
 
 var fullName = document.querySelector('#name')
@@ -24,12 +30,6 @@ register_btn.addEventListener('click', () => {
   }
 });
 
-function validateEmail(email) {
-  var emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/im;
-
-  return emailRegex.test(email);
-}
-
 function encodePasswords(pass, repeatPass) {
   hash(pass, 10).then((passHashed) => {
     console.log(passHashed);
@@ -39,36 +39,33 @@ function encodePasswords(pass, repeatPass) {
     console.log(passHashed);
   })
 }
+
 */
 
-register_btn.addEventListener('click', enter)
-
-const url = 'http://26.2.1.64:8080/luna/'
-
+function validateEmail(email) {
+  var emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+?$/im;  //Para emails @algo.COM
+  var emailRegex2 = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/im; //Para emails @algo.COM.BR
+ 
+  return (emailRegex.test(email) || emailRegex2.test(email));
+}
 
 function enter(event) {
     event.preventDefault()
 
-    const user = new UserReg (document.querySelector('#user').value,
-                              document.querySelector('#email').value,
-                              document.querySelector('#name').value,
-                              document.querySelector('#pass').value
-                              );
+    let username = document.querySelector('#user').value;
+    let email = document.querySelector('#email').value;
+    let name = document.querySelector('#name').value;
+    let password = document.querySelector('#pass').value;
 
-    if (document.querySelector('#passrepeat').value != user.password) {
-      //Mensagem na tela que as senhas são diferentes
+    console.log(" Validate EMAIL: " + validateEmail(email));
+    //Validate e-mail && pass
+    if(!validateEmail(email) || email == null){
+      console.log('email inválido');
+    } else if (document.querySelector('#passrepeat').value != password) {
       console.log('senhas são diferentes')      
     } else {
-      console.log(user.login);
-      console.log(user.email);
-      console.log(user.name);
-      console.log(user.password);
-
-      registerUser(user);
-    }
-    
-
-    
+        registerUser(username, email, name, password);
+    }    
 }
 
 
