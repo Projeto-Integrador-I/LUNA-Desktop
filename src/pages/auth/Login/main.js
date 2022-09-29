@@ -1,23 +1,18 @@
 import { authenticate } from '../../../services/userServices.js'
 
 const enter_btn = window.document.querySelector('button.enter')
-enter_btn.addEventListener('click', enter)
 
-const url = 'http://26.2.1.64:8080/luna/'
+enter_btn.addEventListener('click', async (event) => {
+  event.preventDefault()
 
-async function enter(event) {
-    event.preventDefault()
+  const login = document.querySelector('#login').value;
+  const password = document.querySelector('#pass').value;
 
-    let login = document.querySelector('#login').value;
-    let password = document.querySelector('#pass').value;
+  const validation = await authenticate(login, password);
 
-    let validation = await authenticate(login,password);
-    
-    if(validation){
-        
-        window.location.replace("../../app/Home/home.html");
-        
-    } else {
-        console.log("Não autenticado");
-    }
-}
+  if (validation) {
+    window.location.replace("../../app/Home/home.html");
+  } else {
+    console.log("Não autenticado");
+  }
+})
