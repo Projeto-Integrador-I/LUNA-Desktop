@@ -2,7 +2,7 @@ import { User } from "../Axios/user.js"
 
 const url= 'http://26.2.1.64:8080/luna/'
 
-let user;
+let user = new User();
 
 axios.interceptors.request.use((config) => {
     let token = localStorage.getItem('luna/authenticate')
@@ -48,30 +48,27 @@ function getUser( username ) {
                 mode:'cors'})
     .then(res => {
         let data = res.data;
-        console.log(data);
-        user = null;
-        user = new User(res.data.id, 
-                        res.data.login,
-                        res.data.email,
-                        res.data.name);
-        console.log(user);
+        console.log( data );
+        setId( res.data.id ); 
+        setLogin( res.data.login );
+        setEmail( res.data.email );
+        setName( res.data.name );
     })
-    .catch(err => console.log(err))
+    .catch(err => console.log( err ))
 }
 
 // função para autenticar o usuário
 export async function authenticate( username , password ){
     let validation = false;
-    await axios.post( url + 'authenticate',{
-                                        username: username,
-                                        password: password
-                                    },{headers: {"Content-Type": "application/json"}})
+    await axios.post( url + 'authenticate',{ username: username,
+                                             password: password
+                                        },{  headers: {"Content-Type": "application/json"}})
     .then(  (res) =>  { 
         const token = res.data.token;
         localStorage.setItem('luna/authenticate', token)
-        console.log("Token Authenticate 'Novo Token' :" + token);
-        getUser(username);
-        validation = true;    
+        //console.log("Token Authenticate 'Novo Token' :" + token);
+        getUser( username );
+        validation = true;  
     } )
     .catch(err => console.log(err))
     return validation;
@@ -90,4 +87,62 @@ export function registerUser( username, email, name, password ){
         console.log("Register OK"); 
     })
     .catch(err => console.log(err))
+}
+
+export function updateUser( username, email, name, password ){
+    axios.put(url + 'users/' + user.id, {
+                            login: username,
+                            email: email,
+                            name: name,
+                            password: password
+                            },
+                            {headers: {"Content-Type": "application/json"}})
+    .then(res => {
+        getUser( username );
+        console.log("Update User RES: " + JSON.stringify(res));
+    }).catch(err => console.log( err ))
+
+}
+
+function deleteUser( id ){
+    axios.delete(url + 'users/' + id )
+    .then(res => console.log("Delete User RES: " + JSON.stringify(res)))
+    .catch(err => console.log(err));
+}
+
+function getId(){
+    let id = user.id;
+    return id;
+}
+
+function getLogin(){
+    return user.login;
+}
+
+function getName(){
+    return user.name;
+}
+
+function getEmail(){
+    return user.email;
+}
+
+function setLogin( login ){
+    user.login = login;
+}
+
+function setEmail( email ){
+    user.email = email;
+}
+
+function setName( name ){
+    user.name = name;
+}
+
+function setId( id ){
+    user.id = id;
+}
+
+function setPassword( password ){
+    user.password = password;
 }
