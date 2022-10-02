@@ -35,32 +35,3 @@ body {
   max-height: 400px;
   border-radius: 10px;
 }
-
-.footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 100vw;
-  height: 40vh;
-  margin-top: 30px;
-
-  background: #070707;
-}
-
-.footer_logo {
-  padding-right: 60%;
-}
-
-.footer_content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer span {
-  padding: 10px;
-  color: #fff;
-}

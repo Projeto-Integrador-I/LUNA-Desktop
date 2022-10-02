@@ -1,3 +1,4 @@
+// import { getLogin } from '../Axios/user';
 const header = document.createElement('template');
 
 css = `.header {
@@ -74,7 +75,7 @@ header.innerHTML = `
       <li class="menu-option"><a href="../search/index.html">Pesquisas</a></li>
   </ul>
   <div class="perfil">
-      <span>Fernando</span>
+      <span>AAAAA</span>
       <img src="../../../assets/User.svg" alt="user-icon" srcset="">
   </div>
 </div>`;
