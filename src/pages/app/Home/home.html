@@ -10,22 +10,41 @@
 </head>
 <body>
   <v-header></v-header>
+  <!--
   <div class="slider">
     <img src="../../../assets/Slider.png" alt="slider-01">
   </div>
-  <p class="title">Livros mais procurados</p>
-  <div class="articles">
-    <img src="../../../assets/01.png">
-    <img src="../../../assets/02.png">
-    <img src="../../../assets/03.png">
-    <img src="../../../assets/04.png">
-    <img src="../../../assets/05.png">
-    <img src="../../../assets/06.png">
+  -->
+  <!-- Banner -->
+  <header id="banner">
+    <div id="banner__contents">
+      <h1 id="banner__title"></h1>
+      <div id="banner_buttons">  
+        <div id="banner__button">Minha Lista</div>
+    </div>
+      <p id="banner__description"></p>
+    </div>
+    <div id="banner__fadeBottom"></div>
+  </header>
+    
+
+  <div id="headrow">
+    <div class="row">
+      <h2 class="row__title"></h2>
+      <div class="row__posters"></div>
+    </div>
   </div>
+
+  
   <v-footer></v-footer>
   
-  <script src="../../../components/v-header.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  <script src="../../../components/v-banner.js"></script>
+  <script src="../../../components/v-header.js"></script>
+  <script src="../../../components/v-card.js"></script> 
   <script src="../../../components/v-footer.js"></script> 
+  
   <script src="./script.js"></script>
 </body>
 </html>
