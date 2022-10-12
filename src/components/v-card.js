@@ -1,33 +1,71 @@
-import instance from '../services/axiosInstace.js'
+import instance from '../services/axiosInstace.js';
 
-instance.get('games?appids=1238000')  
+
+
+instance.get('trending',
+  { headers: { "Content-Type": "application/json" }})  
 .then((res) => {
-  console.log("DATA : "+ res);
-  const headrow = document.getElementById("headrow");
-  const row = document.createElement("div");
-  row.className = "row";
-  row.classList.add("gamesrow");
-  headrow.appendChild(row);
-  const title = document.createElement("h2");
-  title.className = "row__title";
-  title.innerText = "GAMES";
-  row.appendChild(title);
-  const row_posters = document.createElement("div");
-  row_posters.className = "row__posters";
-  row.appendChild(row_posters);
-  
-    const poster = document.createElement("img");
-    poster.className = "row__posterLarge";
-    poster.id = res.data.name;
-    console.log("id = "+poster.id);
-    poster.src = res.data.images.headerImage;
-    console.log("img" + poster.src);
-    
-    row_posters.appendChild(poster);
-  
-  });
+console.log(res);
+const headrow = document.getElementById("headrow");
+const row = document.createElement("div");
+row.className = "row";
+row.classList.add("gamesrow");
+headrow.appendChild(row);
+const title = document.createElement("h2");
+title.className = "row__title";
+title.innerText = "Trending";
+row.appendChild(title);
+const row_posters = document.createElement("div");
+row_posters.className = "row__posters";
+row.appendChild(row_posters);
 
-instance.get('movies?name=velozes+furiosos') 
+res.data.results.forEach(trend => {
+
+  const poster = document.createElement("img");
+  poster.className = "row__posterLarge";
+  poster.id = trend.name;
+  poster.src = 'https://image.tmdb.org/t/p/w500' + trend.poster_path;
+  
+  row_posters.appendChild(poster);
+
+});
+});
+
+instance.get('most-played',
+{ headers: { "Content-Type": "application/json" }}) 
+.then((res) => {
+console.log(res);
+const headrow = document.getElementById("headrow");
+const row = document.createElement("div");
+row.className = "row";
+row.classList.add("booksrow");
+headrow.appendChild(row);
+const title = document.createElement("h2");
+title.className = "row__title";
+title.innerText = "Most Played";
+row.appendChild(title);
+const row_posters = document.createElement("div");
+row_posters.className = "row__posters";
+row.appendChild(row_posters);
+
+res.data.forEach(game => {
+
+if(game != null){
+const poster = document.createElement("img");
+
+poster.className = "row__posterLarge";
+poster.id = game.name;
+
+poster.src = game.images.headerImage;
+
+row_posters.appendChild(poster);
+}
+});
+});
+
+
+instance.get('movies?name=velozes+furiosos',
+{ headers: { "Content-Type": "application/json" }}) 
 .then((res) => {
 console.log(res);
 const headrow = document.getElementById("headrow");
@@ -37,7 +75,7 @@ row.classList.add("moviesrow");
 headrow.appendChild(row);
 const title = document.createElement("h2");
 title.className = "row__title";
-title.innerText = "Movies";
+title.innerText = "Velozes e Furiosos";
 row.appendChild(title);
 const row_posters = document.createElement("div");
 row_posters.className = "row__posters";
@@ -52,7 +90,8 @@ row_posters.appendChild(poster);
 });
 });
 
-instance.get('book?name=o+pequeno+principe') 
+instance.get('book?name=o+pequeno+princepe',
+{ headers: { "Content-Type": "application/json" }}) 
 .then((res) => {
 console.log(res);
 const headrow = document.getElementById("headrow");
