@@ -5,7 +5,6 @@ const series = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVnvBMvTF5t0zYPBH3a3OTJmmOH8VMLHmR7eErwxgQ&s",
   },
 ];
-// const series = [];
 
 const listsEmptyContainer = document.getElementsByClassName(
   "main_empty_container"
