@@ -1,20 +1,6 @@
+import instance from '../services/axiosInstace.js'
 
-
-axios.interceptors.request.use((config) => {
-    let token = localStorage.getItem('luna/authenticate')
-  
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
-    }
-  
-    return config
-  }, error => {
-    return Promise.reject(error)
-  })
-
-
-axios.get(url + 'games?appids=1238000',
-    { headers: { "Content-Type": "application/json" }})  
+instance.get('games?appids=1238000')  
 .then((res) => {
   console.log("DATA : "+ res);
   const headrow = document.getElementById("headrow");
@@ -41,8 +27,7 @@ axios.get(url + 'games?appids=1238000',
   
   });
 
-axios.get(url + 'movies?name=velozes+furiosos',
-{ headers: { "Content-Type": "application/json" }}) 
+instance.get('movies?name=velozes+furiosos') 
 .then((res) => {
 console.log(res);
 const headrow = document.getElementById("headrow");
@@ -67,8 +52,7 @@ row_posters.appendChild(poster);
 });
 });
 
-axios.get(url + 'book?name=o+pequeno+princepe',
-{ headers: { "Content-Type": "application/json" }}) 
+instance.get('book?name=o+pequeno+principe') 
 .then((res) => {
 console.log(res);
 const headrow = document.getElementById("headrow");
