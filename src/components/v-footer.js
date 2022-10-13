@@ -74,22 +74,22 @@ footer.innerHTML = `
     <ul class="footer_socials">
       <li>
         <div class="footer_social">
-          <img src="../../../assets/facebook_logo.png" alt="facebook">
+          <img src="../../../assets/medias/facebook_logo.png" alt="facebook">
         </div>
       </li>
       <li>
         <div class="footer_social">
-          <img src="../../../assets/insta_logo.png" alt="instagram">
+          <img src="../../../assets/medias/insta_logo.png" alt="instagram">
         </div>
       </li>
       <li>
         <div class="footer_social">
-          <img src="../../../assets/twitter_logo.png" alt="twitter">
+          <img src="../../../assets/medias/twitter_logo.png" alt="twitter">
         </div>
       </li>
       <li>
         <div class="footer_social">
-          <img src="../../../assets/github_logo.png" alt="github">
+          <img src="../../../assets/medias/github_logo.png" alt="github">
         </div>
       </li>
     </ul>
