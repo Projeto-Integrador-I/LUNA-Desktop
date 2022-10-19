@@ -2,7 +2,7 @@ import instance from '../services/axiosInstace.js';
 
 
 
-instance.get('trending',
+instance.get('trending-tv',
   { headers: { "Content-Type": "application/json" }})  
 .then((res) => {
 console.log(res);
@@ -13,24 +13,26 @@ row.classList.add("gamesrow");
 headrow.appendChild(row);
 const title = document.createElement("h2");
 title.className = "row__title";
-title.innerText = "Trending";
+title.innerText = "Trending: TV Shows";
 row.appendChild(title);
 const row_posters = document.createElement("div");
 row_posters.className = "row__posters";
 row.appendChild(row_posters);
 
-res.data.results.forEach(trend => {
+res.data.forEach(tv => {
 
   const poster = document.createElement("img");
   poster.className = "row__posterLarge";
-  poster.id = trend.name;
-  poster.src = 'https://image.tmdb.org/t/p/w500' + trend.poster_path;
+  poster.id = tv.title;
+  poster.src = tv.coverLink;
   
   row_posters.appendChild(poster);
 
 });
 });
 
+
+/*
 instance.get('most-played',
 { headers: { "Content-Type": "application/json" }}) 
 .then((res) => {
@@ -62,9 +64,8 @@ row_posters.appendChild(poster);
 }
 });
 });
-
-
-instance.get('movies?name=velozes+furiosos',
+*/
+instance.get('trending-movies',
 { headers: { "Content-Type": "application/json" }}) 
 .then((res) => {
 console.log(res);
@@ -75,7 +76,7 @@ row.classList.add("moviesrow");
 headrow.appendChild(row);
 const title = document.createElement("h2");
 title.className = "row__title";
-title.innerText = "Velozes e Furiosos";
+title.innerText = "Trending: Movies";
 row.appendChild(title);
 const row_posters = document.createElement("div");
 row_posters.className = "row__posters";
@@ -85,7 +86,7 @@ res.data.forEach(movie => {
 const poster = document.createElement("img");
 poster.className = "row__posterLarge";
 poster.id = movie.title;
-poster.src = movie.posterPath;
+poster.src = movie.coverLink;
 row_posters.appendChild(poster);
 });
 });
@@ -122,3 +123,6 @@ row_posters.appendChild(poster);
 } 
 });
 });
+
+// /trending-tv -> retorna só séries de tv e tals
+// /trending-movies -> retorna só os movies
