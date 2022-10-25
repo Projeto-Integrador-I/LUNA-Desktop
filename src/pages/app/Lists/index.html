@@ -16,21 +16,43 @@
             <img src="../../../assets/sad-face.svg" alt="sad face">
             <h2>Está tão vazio aqui!</h2>
             <h4>Parece que você não possui nenhuma lista ainda...</h4>
-            <button onclick="">
-                CRIAR LISTA
-            </button>
+            <!-- <button onclick="openModal()">CRIAR LISTA</button> -->
+            <button id="create_btn">CRIAR LISTA</button>
         </div>
     </div>
 
     <div class="main_container">
         <ul id="list"></ul>
-        <div class="add_list">
+        <div onclick="openModal()" class="add_list">
             <img src="../../../assets//plus.png" alt="plus">
             <h2>Criar Lista</h2>
         </div>
     </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal_content">
+            <h2 class="title">Cadastro de Lista</h2>
+            <form onsubmit="return false">
+                <div class="fields">
+                <div>
+                    <p class="field_title">Nome</p>
+                    <input spellcheck="false" class="field" type="text">
+                </div>
+                <div>
+                    <p class="field_title">Descrição</p>
+                    <textarea spellcheck="false" class="field description"></textarea>
+                </div>
+                </div>
+                <div class="modal_btns">
+                <button id="add" class="modal_btn">Cadastrar</button>
+                <button id="cancel" class="modal_btn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../../components/v-header.js"></script> 
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 
 </html>

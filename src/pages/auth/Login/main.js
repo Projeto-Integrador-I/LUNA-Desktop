@@ -1,4 +1,4 @@
-import { authenticate } from '../../../services/userServices.js'
+import { UserService } from '../../../services/userServices.js'
 
 const enter_btn = window.document.querySelector('button.enter')
 
@@ -8,7 +8,7 @@ enter_btn.addEventListener('click', async (event) => {
   const login = document.querySelector('#login').value;
   const password = document.querySelector('#pass').value;
 
-  const validation = await authenticate(login, password);
+  const validation = await UserService.authenticate(login, password);
 
   if (validation) {
     window.location.replace("../../app/Home/home.html");

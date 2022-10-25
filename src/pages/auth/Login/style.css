@@ -52,6 +52,10 @@ form > input {
   background-color: rgb(214, 214, 214);
 }
 
+form > input:focus {
+  outline: none;
+}
+
 .enter {
   justify-self: center;
   width: 270px;
@@ -82,21 +86,18 @@ form > input {
   margin: 0;
 }
 
-#forgotPass{
+#forgotPass {
   margin-left: 65%;
 }
 
-#signupLink{
+#signupLink {
   text-decoration: none;
 }
- 
-#signupLink:hover{
+
+#signupLink:hover {
   text-decoration: underline;
 }
 
 .text-buttons:hover {
   text-decoration: underline;
 }
-
-
-

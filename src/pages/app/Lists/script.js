@@ -1,9 +1,11 @@
+import { ListService } from '../../../services/listServices.js'
+
 const series = [
-  {
-    name: "Peaky Blinders",
-    cover:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVnvBMvTF5t0zYPBH3a3OTJmmOH8VMLHmR7eErwxgQ&s",
-  },
+  // {
+  //   name: "Peaky Blinders",
+  //   cover:
+  //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVnvBMvTF5t0zYPBH3a3OTJmmOH8VMLHmR7eErwxgQ&s",
+  // },
 ];
 
 const listsEmptyContainer = document.getElementsByClassName(
@@ -30,4 +32,39 @@ if (series.length > 0) {
 
   card.appendChild(label);
   pageList.appendChild(card);
+}
+
+/* Modal */
+const modal = document.getElementById("registerModal")
+
+const btn = document.getElementById("create_btn")
+const add = document.getElementById("add")
+const cancel = document.getElementById("cancel")
+
+const fieldName = document.querySelector("form input")
+const fieldDesc = document.querySelector("form textarea")
+
+btn.onclick = () => {
+  modal.style.display = "flex"
+}
+
+add.onclick = () => {
+  // ListService.getLists();
+
+  const name = fieldName.value
+  const desc = fieldDesc.value
+
+  if (name) {
+    ListService.registerList(name, desc)
+  }
+}
+
+cancel.onclick = () => {
+  modal.style.display = "none"
+}
+
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }

@@ -1,4 +1,4 @@
-import { registerUser } from '../../../services/userServices.js'
+import { UserService } from '../../../services/userServices.js'
 
 const register_btn = document.querySelector('button.register')
 
@@ -22,6 +22,6 @@ register_btn.addEventListener('click', (event) => {
   } else if (document.querySelector('#passrepeat').value != password) {
     console.log('senhas são diferentes')
   } else {
-    registerUser(username, email, name, password);
+    UserService.registerUser(username, email, name, password);
   }
 })
