@@ -1,11 +1,13 @@
+const url = window.location.href
+
 const nav = document.getElementById("header")
 const logo = document.createElement("img")
 const navList = document.createElement("ul")
 
 const navItems = [
-  { href: "../Home/index.html", text: "Home" },
-  { href: "../Lists/index.html", text: "Listas" },
-  { href: "../Search/index.html", text: "Pesquisas" }
+  { href: "Home/index.html", text: "Home" },
+  { href: "Lists/index.html", text: "Listas" },
+  { href: "Search/index.html", text: "Pesquisas" }
 ]
 
 let navItem, navLink
@@ -26,7 +28,11 @@ navItems.forEach(item => {
 
   navItem.setAttribute("class", "menu-option")
 
-  navLink.href = item.href
+  if (url.includes(item.href)) {
+    navLink.setAttribute("class", "option-active")
+  }
+
+  navLink.href = `../${item.href}`
   navLink.innerHTML = item.text
 
   navItem.appendChild(navLink)
