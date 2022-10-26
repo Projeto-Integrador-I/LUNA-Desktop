@@ -11,7 +11,7 @@ enter_btn.addEventListener('click', async (event) => {
   const validation = await UserService.authenticate(login, password);
 
   if (validation) {
-    window.location.replace("../../app/Home/home.html");
+    window.location.replace("../../app/Home/index.html");
   } else {
     console.log("Não autenticado");
   }

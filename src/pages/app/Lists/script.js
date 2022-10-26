@@ -37,19 +37,25 @@ if (series.length > 0) {
 /* Modal */
 const modal = document.getElementById("registerModal")
 
-const btn = document.getElementById("create_btn")
+const emptyCreate = document.getElementById("empty_create_btn")
+const mainCreate = document.getElementById("main_create_btn")
+
 const add = document.getElementById("add")
 const cancel = document.getElementById("cancel")
 
 const fieldName = document.querySelector("form input")
 const fieldDesc = document.querySelector("form textarea")
 
-btn.onclick = () => {
+emptyCreate.onclick = () => {
+  modal.style.display = "flex"
+}
+
+mainCreate.onclick = () => {
   modal.style.display = "flex"
 }
 
 add.onclick = () => {
-  // ListService.getLists();
+  ListService.getLists();
 
   const name = fieldName.value
   const desc = fieldDesc.value

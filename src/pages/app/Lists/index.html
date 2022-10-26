@@ -1,4 +1,4 @@
-../<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,20 +10,19 @@
 </head>
 
 <body>
-    <v-header></v-header>
+    <nav id="header"></nav>
     <div class="main_empty_container">
         <div class="empty_list">
             <img src="../../../assets/sad-face.svg" alt="sad face">
             <h2>Está tão vazio aqui!</h2>
             <h4>Parece que você não possui nenhuma lista ainda...</h4>
-            <!-- <button onclick="openModal()">CRIAR LISTA</button> -->
-            <button id="create_btn">CRIAR LISTA</button>
+            <button id="empty_create_btn">CRIAR LISTA</button>
         </div>
     </div>
 
     <div class="main_container">
         <ul id="list"></ul>
-        <div onclick="openModal()" class="add_list">
+        <div id="main_create_btn" class="add_list">
             <img src="../../../assets//plus.png" alt="plus">
             <h2>Criar Lista</h2>
         </div>

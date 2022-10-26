@@ -226,3 +226,64 @@ form {
   cursor: pointer;
   background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
 }
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 10%;
+  padding: 10px 100px;
+  position: relative;
+}
+
+.logo {
+  height: 80%;
+}
+
+.menu-options {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 60%;
+}
+
+.menu-option {
+  margin-left: 50px;
+  font-style: none;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.menu-option a {
+  color: #717171;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.menu-option a:hover {
+  color: #fff;
+}
+
+.option-active {
+  color: #fff !important;
+}
+
+.perfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  align-self: flex-end;
+  position: absolute;
+  top: 40px;
+  right: 330px;
+}
+
+.perfil img {
+  cursor: pointer;
+  margin-left: 10px;
+}

@@ -36,17 +36,17 @@ body {
   border-radius: 10px;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 7px;
   background-color: #111;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: whitesmoke;
   border-radius: 10px;
 }
 
-#banner{
+#banner {
   color: white;
   object-fit: contain;
   height: 844px;
@@ -54,68 +54,72 @@ body {
   background-size: cover;
 }
 
-#banner__contents{
+#banner__contents {
   margin-left: 70px;
   padding-top: 540px;
   height: 190px;
 }
 
-#banner__title{
+#banner__title {
   font-size: 3rem;
   font-weight: 800;
   padding-bottom: 0.3rem;
 }
 
-#banner__description{
+#banner__description {
   width: 45rem;
   line-height: 1.5;
   padding-top: 1rem;
-  font-size: .9rem;
+  font-size: 0.9rem;
   max-width: 360px;
   height: 80px;
 }
 
-#banner__button{
+#banner__button {
   cursor: pointer;
   color: white;
   outline: none;
   border: none;
   font-weight: 700;
-  border-radius: .2vw;
+  border-radius: 0.2vw;
 
   width: 15%;
 
   text-align: center;
 
-  padding: .5rem 2rem .5rem 2rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
 
   margin: 1rem 1rem 1rem 1rem;
-  
-  background-color: rgba(51, 51, 51, .5);
+
+  background-color: rgba(51, 51, 51, 0.5);
 }
 
-#banner__button:hover{
+#banner__button:hover {
   color: black;
   background-color: #e6e6e6;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
-#banner__fadeBottom{
+#banner__fadeBottom {
   height: 7.4rem;
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(37, 37, 37, .60),
+    rgba(37, 37, 37, 0.6),
     #1f1f1f
   );
 }
 
-.row{
+.row {
   margin-left: 20px;
   color: white;
 }
 
-.row__poster{
+.row__title {
+  margin: 10px 0 0 35px;
+}
+
+.row__poster {
   object-fit: contain;
   width: 100%;
   max-height: 120px;
@@ -123,24 +127,24 @@ body {
   transition: transform 500ms;
 }
 
-.row__posters::-webkit-scrollbar{
+.row__posters::-webkit-scrollbar {
   display: none;
 }
 
-.row__posters{
+.row__posters {
   display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 20px;
 }
 
-#row__posters:hover{
+#row__posters:hover {
   transform: scale(1.08);
 }
 
 .row__posterLarge,
 .row__posterLarge1,
-.row__posterLarge2{
+.row__posterLarge2 {
   object-fit: contain;
   width: 100%;
   max-height: 250px;
@@ -150,7 +154,69 @@ body {
 
 .row__posterLarge:hover,
 .row__posterLarge1:hover,
-.row__posterLarge2:hover{
+.row__posterLarge2:hover {
+  cursor: pointer;
   transform: scale(1.09);
   opacity: 1;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 10%;
+  padding: 10px 100px;
+  position: relative;
+}
+
+.logo {
+  height: 80%;
+}
+
+.menu-options {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 60%;
+}
+
+.menu-option {
+  margin-left: 50px;
+  font-style: none;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.menu-option a {
+  color: #717171;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.menu-option a:hover {
+  color: #fff;
+}
+
+.option-active {
+  color: #fff !important;
+}
+
+.perfil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  align-self: flex-end;
+  position: absolute;
+  top: 40px;
+  right: 330px;
+}
+
+.perfil img {
+  cursor: pointer;
+  margin-left: 10px;
 }
