@@ -74,6 +74,10 @@ form > input:focus {
   background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
 }
 
+.enter:focus{
+  outline: none;
+}
+
 .text-buttons {
   color: white;
   font-size: 14px;
