@@ -17,12 +17,12 @@ section {
   border-radius: 10px;
 }
 
-.row{
+.row {
   margin-left: 20px;
   color: white;
 }
 
-.row__poster{
+.row__poster {
   object-fit: contain;
   width: 100%;
   max-height: 120px;
@@ -30,22 +30,22 @@ section {
   transition: transform 500ms;
 }
 
-.row__posters::-webkit-scrollbar{
+.row__posters::-webkit-scrollbar {
   display: none;
 }
 
-.row__posters{
+.row__posters {
   display: inline-table;
   padding: 20px;
 }
 
-#row__posters:hover{
+#row__posters:hover {
   transform: scale(1.08);
 }
 
 .row__posterLarge,
 .row__posterLarge1,
-.row__posterLarge2{
+.row__posterLarge2 {
   object-fit: cover;
   height: 250px;
   width: 166.66px;
@@ -56,11 +56,10 @@ section {
 
 .row__posterLarge:hover,
 .row__posterLarge1:hover,
-.row__posterLarge2:hover{
+.row__posterLarge2:hover {
   transform: scale(1.09);
   opacity: 1;
 }
-
 
 .container-options {
   display: flex;
@@ -69,29 +68,51 @@ section {
   margin-right: 50px;
 }
 
-.container-options a {
-  display: flex;
+.mediaTypes {
   font-style: none;
   list-style: none;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
+
+  display: flex;
+  flex-direction: row;
 }
 
-.container-options  a {
-  padding: 5px 15px;
-  background-color: #555555;
-  border-radius: 20px;
+.mediaType {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   margin: 10px;
+  padding: 5px 15px;
+
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+
   cursor: pointer;
 }
 
-.container-options a:hover {
-  background-color: #878787;
+.mediaType a {
+  text-transform: uppercase;
+  text-decoration: none;
+
+  margin-left: 10px;
+
+  color: #fff;
 }
 
-.container-options .active {
-  background-color: #4632A4;
+.mediaType:hover {
+  background-color: #555555;
+}
+
+.active {
+  background-color: #563ec2;
+}
+
+.active:hover {
+  background-color: #6f58d6 !important;
+}
+
+.type_icon {
+  width: 20px;
 }
 
 .searchBar {
@@ -101,17 +122,22 @@ section {
 
 .searchBar input {
   width: 100%;
-  border-radius: 15px;
-  border: none;
   padding: 8px;
+
   font-family: "Inter", sans-serif;
+
+  border-radius: 5px;
+  border: none;
+
+  box-shadow: 2px 2px 10px rgb(0, 0, 0);
 }
 
-.searchBar input:focus{
+.searchBar input:focus {
   outline: none;
 }
 
 .searchBar img {
+  cursor: pointer;
   position: absolute;
   right: -1%;
   top: 10%;
@@ -135,18 +161,15 @@ section {
   margin: 10px;
 }
 
-/* width */
 .nav::-webkit-scrollbar {
   width: 20px;
 }
 
-/* Track */
 .nav::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
 
-/* Handle */
 .nav::-webkit-scrollbar-thumb {
   position: relative;
   background-color: #757575;
@@ -194,6 +217,7 @@ section {
 
 .logo {
   height: 80%;
+  cursor: pointer;
 }
 
 .menu-options {

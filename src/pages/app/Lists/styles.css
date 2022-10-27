@@ -49,7 +49,7 @@ body {
   font-weight: 300;
 }
 
-.main_empty_container button {
+#empty_create_btn {
   width: 25%;
   padding: 20px 0px 20px 0px;
   background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
@@ -58,6 +58,10 @@ body {
   color: whitesmoke;
   cursor: pointer;
   font-size: 20px;
+}
+
+#empty_create_btn:hover {
+  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
 }
 
 .display-none {
@@ -126,6 +130,7 @@ body {
   cursor: pointer;
 }
 
+/* Modal */
 .modal {
   display: none;
   justify-content: center;
@@ -239,6 +244,7 @@ form {
 
 .logo {
   height: 80%;
+  cursor: pointer;
 }
 
 .menu-options {

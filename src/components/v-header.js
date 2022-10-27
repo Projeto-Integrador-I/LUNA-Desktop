@@ -19,6 +19,10 @@ const userIcon = document.createElement("img")
 logo.setAttribute("src", "../../../assets/moon.svg")
 logo.setAttribute("class", "logo")
 
+logo.onclick = () => {
+  window.location.href = "../Home/index.html";
+}
+
 nav.setAttribute("class", "header")
 navList.setAttribute("class", "menu-options")
 

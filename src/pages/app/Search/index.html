@@ -12,13 +12,30 @@
     <nav id="header"></nav>
     <section>
         <nav class="container-options">
-                <a href="#tudo" class="active">Tudo</a>
-                <a href="#series">Séries</a> 
-                <a href="#filmes">Filmes</a>
-                <a href="#games">Games</a>
-                <a href="#livros">Livros</a>
+            <ul class="mediaTypes">
+                <li class="mediaType active">
+                    <img class="type_icon" src="../../../assets/type_icons/globe.svg">
+                    <a href="#tudo">Tudo</a>
+                </li>
+                <li class="mediaType">
+                    <img class="type_icon" src="../../../assets/type_icons/monitor.svg">
+                    <a href="#series">Séries</a>
+                </li>
+                <li class="mediaType">
+                    <img class="type_icon" src="../../../assets/type_icons/film.svg">
+                    <a href="#filmes">Filmes</a>
+                </li>
+                <li class="mediaType">
+                    <img class="type_icon" src="../../../assets/type_icons/crosshair.svg">
+                    <a href="#games">Games</a>
+                </li>
+                <li class="mediaType">
+                    <img class="type_icon" src="../../../assets/type_icons/book-open.svg">
+                    <a href="#livros">Livros</a>
+                </li>
+            </ul>
             <div class="searchBar">
-                <label for="search"><img src="../../../assets/search.svg" alt="" srcset=""></label>
+                <img src="../../../assets/search.svg">
                 <input type="text" name="search" id="search">
             </div>
         </nav>

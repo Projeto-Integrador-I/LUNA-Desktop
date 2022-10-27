@@ -61,6 +61,7 @@ add.onclick = () => {
   const desc = fieldDesc.value
 
   if (name) {
+    console.log("Criando Lista");
     ListService.registerList(name, desc)
   }
 }

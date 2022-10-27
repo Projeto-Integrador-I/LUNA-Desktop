@@ -72,6 +72,10 @@ body {
   background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
 }
 
+.register:hover {
+  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
+}
+
 #returnLink {
   color: white;
   font-size: 14px;
@@ -87,5 +91,13 @@ body {
 }
 
 #returnLink:hover {
+  text-decoration: underline;
+}
+
+:is(.field, .register, #returnLink):focus {
+  outline: none;
+}
+
+#returnLink:focus {
   text-decoration: underline;
 }

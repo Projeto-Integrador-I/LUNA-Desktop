@@ -172,6 +172,7 @@ body {
 
 .logo {
   height: 80%;
+  cursor: pointer;
 }
 
 .menu-options {

@@ -74,8 +74,8 @@ form > input:focus {
   background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
 }
 
-.enter:focus{
-  outline: none;
+.enter:hover {
+  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
 }
 
 .text-buttons {
@@ -94,14 +94,18 @@ form > input:focus {
   margin-left: 65%;
 }
 
-#signupLink {
+.text-buttons {
   text-decoration: none;
-}
-
-#signupLink:hover {
-  text-decoration: underline;
 }
 
 .text-buttons:hover {
   text-decoration: underline;
+}
+
+:is(#signupLink, #forgotPass):focus {
+  text-decoration: underline;
+}
+
+:is(.enter, .text-buttons):focus {
+  outline: none;
 }
