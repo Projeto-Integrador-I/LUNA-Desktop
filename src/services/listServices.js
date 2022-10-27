@@ -2,8 +2,8 @@ import instance from './axiosInstace.js';
 
 export class ListService {
   static getLists() {
-    instance.get('mediaLists')
-      .then(res => console.log(res.data))
+    return instance.get('mediaLists')
+      .then(res => res.data)
       .catch(err => console.error(err))
   }
 

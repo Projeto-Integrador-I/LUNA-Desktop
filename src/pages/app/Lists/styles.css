@@ -72,16 +72,34 @@ body {
   display: flex;
 }
 
-#list li {
+#list {
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
   width: 250px;
   height: 400px;
+
+  margin-right: 10px;
+
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  opacity: 0.8;
+
+  cursor: pointer;
+
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.267);
 }
 
-#list .card-label {
+.card img {
+  height: 60%;
+  width: 60%;
+  margin-bottom: 40%;
+}
+
+.card-label {
   font-size: 20px;
   font-weight: 500;
   background-color: #000000;
@@ -95,21 +113,14 @@ body {
   border-radius: 0 0 10px 10px;
 }
 
-#list .card-label:hover {
+.card-label:hover {
   cursor: pointer;
 }
 
-#list li img {
-  height: 100%;
-  width: 100%;
-
-  border-radius: 10px;
-}
-
-.add_list {
+#main_create_btn {
   width: 250px;
   height: 400px;
-  margin: 16px 0 0 15px;
+  margin-top: 16px;
 
   display: flex;
   align-items: center;
@@ -117,17 +128,14 @@ body {
   flex-direction: column;
 
   border-radius: 10px;
+  cursor: pointer;
 
   background-color: rgba(0, 0, 0, 0.267);
 }
 
-.add_list h2 {
+#main_create_btn h2 {
   color: #fff;
   font-weight: 400;
-}
-
-.add_list:hover {
-  cursor: pointer;
 }
 
 /* Modal */
@@ -208,8 +216,13 @@ form {
   resize: none;
 }
 
+#error {
+  color: #fff;
+  margin: 10px 0 0 0;
+}
+
 .modal_btns {
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .modal_btn {

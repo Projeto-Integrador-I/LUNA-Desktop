@@ -22,8 +22,8 @@
 
     <div class="main_container">
         <ul id="list"></ul>
-        <div id="main_create_btn" class="add_list">
-            <img src="../../../assets//plus.png" alt="plus">
+        <div id="main_create_btn">
+            <img src="../../../assets/plus.png" alt="plus">
             <h2>Criar Lista</h2>
         </div>
     </div>
@@ -33,18 +33,19 @@
             <h2 class="title">Cadastro de Lista</h2>
             <form onsubmit="return false">
                 <div class="fields">
-                <div>
-                    <p class="field_title">Nome</p>
-                    <input spellcheck="false" class="field" type="text">
+                    <div>
+                        <p class="field_title">Nome</p>
+                        <input spellcheck="false" class="field" type="text">
+                    </div>
+                    <div>
+                        <p class="field_title">Descrição</p>
+                        <textarea spellcheck="false" class="field description"></textarea>
+                    </div>
                 </div>
-                <div>
-                    <p class="field_title">Descrição</p>
-                    <textarea spellcheck="false" class="field description"></textarea>
-                </div>
-                </div>
+                <p id="error"></p>
                 <div class="modal_btns">
-                <button id="add" class="modal_btn">Cadastrar</button>
-                <button id="cancel" class="modal_btn">Cancelar</button>
+                    <button id="add" class="modal_btn">Cadastrar</button>
+                    <button id="cancel" class="modal_btn">Cancelar</button>
                 </div>
             </form>
         </div>
