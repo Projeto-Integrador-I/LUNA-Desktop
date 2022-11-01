@@ -10,14 +10,6 @@ body {
   background-color: #1f1f1f;
 }
 
-.slider {
-  margin-bottom: 30px;
-}
-
-.slider img {
-  width: 100%;
-}
-
 .title {
   font-size: 32px;
   font-weight: 400;
@@ -47,68 +39,93 @@ body {
 }
 
 #banner {
-  color: white;
-  object-fit: contain;
-  height: 844px;
-  background-position: center center;
-  background-size: cover;
+  margin: 0 auto;
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
 }
 
-#banner__contents {
-  margin-left: 70px;
-  padding-top: 540px;
-  height: 190px;
+.slides{
+  width: 400%;
+  height: auto;
+  display: flex;
 }
 
-#banner__title {
-  font-size: 3rem;
-  font-weight: 800;
-  padding-bottom: 0.3rem;
+.slides input{
+  display: none;
 }
 
-#banner__description {
-  width: 45rem;
-  line-height: 1.5;
-  padding-top: 1rem;
-  font-size: 0.9rem;
-  max-width: 360px;
-  height: 80px;
+.slide{
+  width: 25%;
+  position: relative;
+  transition: 1.5s;
 }
 
-#banner__button {
+.slide img{
+  width: 100%;
+}
+
+.manual-navigation{
+  position: absolute;
+  width: 100%;
+  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn{
+  border: 2px solid #ffffff;
+  padding: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  color: white;
-  outline: none;
-  border: none;
-  font-weight: 700;
-  border-radius: 0.2vw;
-
-  width: 15%;
-
-  text-align: center;
-
-  padding: 0.5rem 2rem 0.5rem 2rem;
-
-  margin: 1rem 1rem 1rem 1rem;
-
-  background-color: rgba(51, 51, 51, 0.5);
+  transition: 0.5s;
 }
 
-#banner__button:hover {
-  color: black;
-  background-color: #e6e6e6;
-  transition: all 0.3s;
+.manual-btn:not(:last-child){
+  margin-right: 20px;
 }
 
-#banner__fadeBottom {
-  height: 7.4rem;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(37, 37, 37, 0.6),
-    #1f1f1f
-  );
+.manual-btn:hover{
+  background-color: #ffffff;
 }
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+  margin-left: -25%;
+}
+
+#radio3:checked ~ .first{
+  margin-left: -50%;
+}
+
+#radio4:checked ~ .first{
+  margin-left: -75%;
+}
+
+.navigation-auto div{
+  border: 2px solid #20a6ff;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.navigation-auto{
+  position: absolute;
+  width: 100%;
+  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation-auto div:not(:last-child){
+  margin-right: 20px;
+}
+
+
 
 .row {
   margin-left: 20px;
