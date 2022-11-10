@@ -58,7 +58,6 @@
         
 
         manual_nav.appendChild(manual_btn);   
-        console.log(banner); 
     }
     
     banner.appendChild(manual_nav);

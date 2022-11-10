@@ -1,45 +1,59 @@
-export class User {
-  constructor(id, login, email, name, password) {
-    this.id = id
-    this.login = login
-    this.email = email
-    this.name = name
-    this.password = password
-  }
+import { UserService } from '../services/userServices.js';
 
+/*
+To use User class;
+let u = new User();
+    const printId = async () => {
+    const a = await u.getId;
+    const b = await u.getLogin;
+    const c = await u.getEmail;
+    const d = await u.getName;
+      console.log(a);
+      console.log(b);
+      console.log(c);
+      console.log(d);
+}
+*/
+export class User {
+  constructor(){
+    getUser();
+  }
+ 
   get getId() {
-    return this.id;
+    return getUser().then((user) => { return user.id } );
   }
 
   get getLogin() {
-    return this.login;
-  }
-
-  get getName() {
-    return this.name;
+    return getUser().then( (user) => { return user.login } );
   }
 
   get getEmail() {
-    return this.email;
+    return getUser().then( (user) => { return user.email } );;
   }
 
-  set setLogin(login) {
-    this.login = login;
+  get getName() {
+    return getUser().then( (user) => { return user.name } );;
   }
 
-  set setEmail(email) {
-    this.email = email;
-  }
+  // set Login(login) {
+  //   user.login = login;
+  // }
 
-  set setName(name) {
-    this.name = name;
-  }
+  // set Email(email) {
+  //   user.email = email;
+  // }
 
-  set setId(id) {
-    this.id = id;
-  }
+  // set Name(name) {
+  //   user.name = name;
+  // }
 
-  set setPassword(password) {
-    this.password = password;
-  }
+  // set Password(password) {
+  //   user.password = password;
+  // }
+  
+}
+
+function getUser() {
+ let user = UserService.getUser(localStorage.getItem('luna/username'));
+ return user;
 }

@@ -1,4 +1,4 @@
-import { UserService } from '../../../services/userServices.js'
+import { UserService } from '../../../services/userServices.js';
 
 const enter_btn = window.document.querySelector('button.enter')
 
@@ -12,6 +12,8 @@ enter_btn.addEventListener('click', async (event) => {
 
   if (validation) {
     window.location.replace("../../app/Home/index.html");
+  printId();
+  
   } else {
     console.log("Não autenticado");
   }

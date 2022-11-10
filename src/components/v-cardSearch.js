@@ -3,7 +3,6 @@ const headrow = document.getElementById("headrow");
 const row = document.createElement("div");
 const row_posters = document.createElement("div");
 const search = document.querySelector('#search')
-console.log(searched)
 
 row.className = "row";
 row.classList.add("allrow");
@@ -33,7 +32,6 @@ function searchInKeyUp(event){
     });
 }
 
-if(searched == ""){
 instance.get('trending-tv')  
 .then((res) => {
   res.data.forEach(tv => {
@@ -92,4 +90,3 @@ instance.get('trending-movies')
 
   });
 });
-}
