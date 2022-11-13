@@ -11,9 +11,38 @@
 <body>
     <nav id="header"></nav>
     <section>
-        <div id="options"></div>
-        <nav id="headrow"></nav>  
+        <nav class="container-options">
+            <ul class="mediaTypes">
+                <li class="mediaType active">
+                    <img class="type_icon" src="../../../assets/type_icons/globe.svg">
+                    <a href="#tudo">Tudo</a>
+                </li>
+                <li class="mediaType">
+                    <img class="type_icon" src="../../../assets/type_icons/monitor.svg">
+                    <a href="#series">Séries</a>
+                </li>
+                <li class="mediaType">
+                    <img class="type_icon" src="../../../assets/type_icons/film.svg">
+                    <a href="#filmes">Filmes</a>
+                </li>
+                <li class="mediaType">
+                    <img class="type_icon" src="../../../assets/type_icons/crosshair.svg">
+                    <a href="#games">Games</a>
+                </li>
+                <li class="mediaType">
+                    <img class="type_icon" src="../../../assets/type_icons/book-open.svg">
+                    <a href="#livros">Livros</a>
+                </li>
+            </ul>
+            <div class="searchBar">
+                <img src="../../../assets/search.svg">
+                <input type="text" name="search" id="search">
+            </div>
+        </nav>
+            
+    <div id="headrow"></div>  
     </section>
+<<<<<<< HEAD
     <footer id="footer"></footer>
     
     <script src="../../../components/v-header.js"></script> 
@@ -24,5 +53,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 
     <script type='module' src="script.js"></script>
+=======
+    <v-footer></v-footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script type="module" src="../../../components/v-cardSearch.js"></script>
+    <script src="../../../components/v-footer.js"></script> 
+    <script src="../../../components/v-header.js"></script> 
+    <script type='module' src="../Search/script.js"></script>
+>>>>>>> parent of 6cbdd8e (Criação do Rodapé com JS DOM)
 </body>
 </html>
