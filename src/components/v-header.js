@@ -1,3 +1,5 @@
+import { User } from "../model/user.js"
+
 const url = window.location.href
 
 const nav = document.getElementById("header")
@@ -44,7 +46,14 @@ navItems.forEach(item => {
 });
 
 perfil.setAttribute("class", "perfil")
-username.innerHTML = "Admin"
+
+let user = new User();
+const nombre = async () => {
+  const name = await user.getLogin;
+  username.innerHTML = name;
+}
+nombre();
+
 userIcon.setAttribute("src", "../../../assets/User.svg")
 
 perfil.appendChild(username)
