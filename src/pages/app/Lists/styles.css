@@ -52,7 +52,11 @@ body {
 #empty_create_btn {
   width: 25%;
   padding: 20px 0px 20px 0px;
-  background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
+  background: linear-gradient(to right, #483d7c 0%, #150b43 161.67%);
+
+  transition: 0.5s;
+  background-size: 200% auto;
+
   border-radius: 10px;
   border: none;
   color: whitesmoke;
@@ -61,7 +65,7 @@ body {
 }
 
 #empty_create_btn:hover {
-  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
+  background-position: right center;
 }
 
 .display-none {

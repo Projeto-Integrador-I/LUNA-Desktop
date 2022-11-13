@@ -88,6 +88,8 @@ section {
   border-radius: 5px;
 
   cursor: pointer;
+
+  transition: ease-out 0.5s;
 }
 
 .mediaType a {
@@ -104,7 +106,7 @@ section {
 }
 
 .active {
-  background-color: #563ec2;
+  background-color: #4c38a8;
 }
 
 .active:hover {
@@ -121,8 +123,8 @@ section {
 }
 
 .searchBar input {
-  width: 100%;
-  padding: 8px;
+  width: 95%;
+  padding: 8px 40px 8px 8px;
 
   font-family: "Inter", sans-serif;
 
