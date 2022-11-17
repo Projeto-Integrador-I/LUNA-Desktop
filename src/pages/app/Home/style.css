@@ -173,16 +173,33 @@ body {
   cursor: pointer;
   transform: scale(1.09);
   opacity: 1;
+  z-index: 1;
 }
 
 .modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  right: 0;
+  top: 0;
+
+  position: fixed;
+
+  overflow-x: hidden;
+  z-index: 2;
+}
+
+#modal_midia {
+  display: none;
   height: 100%;
   width: 430px;
   background-color: #000000;
   padding: 3%;
 }
 
-.modal_title{
+#modal_title{
   width: 100%;
   display: flex;
   justify-content: center;
@@ -193,35 +210,43 @@ body {
   color: #fff;
 }
 
-.modal_info{
-  height: 20%;
+#modal_info{
+  
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100%;
   grid-column-gap: 5px;
 }
 
-.modal_poster{
+#modal_poster{
   max-width: 100%;
   max-height: 100%;
   border-radius: 10px;
 }
 
-.modal_specific-info{
+#modal_specific-info{
  padding-left: 10px;
  color: #fff;
 }
 
-.modal_extra-info{
-  height: 10%;
+#modal_extra-info{
+  height: auto;
   color: #fff;
+  padding-bottom: 100px;
 }
-.modal_div-button{
+#modal_div-button{
+  
   display: flex;
   justify-content: center;
 }
-
-.modal_add-to-list {
+#modal_add{
+  width: 430px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 30px;
+}
+#modal_add-to-list {
   min-width: 130px;
   height: 40px;
   color: #fff;
@@ -229,7 +254,8 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
+  bottom: 10px;
+ 
   display: inline-block;
   outline: none;
   border-radius: 15px;
@@ -238,16 +264,16 @@ body {
   box-shadow: 0 5px #2c0b8e;
 }
 
-.modal_add-to-list:hover {
+#modal_add-to-list:hover {
   box-shadow: 0 3px #2c0b8e;
   top: 1px;
 }
-.modal_add-to-list:active {
+#modal_add-to-list:active {
   box-shadow: 0 0 #2c0b8e;
   top: 5px;
 }
 
-.modal_return{
+.return{
   border: none;
   top: 20px;
   left: 30px;
@@ -258,11 +284,11 @@ body {
   color: #fff;
 }
 
-.modal_return::after{
+.return::after{
   content: "\1F860";
 }
 
-.modal_return:hover{
+.return:hover{
   scale: 1.09;
   cursor: pointer;
 }
