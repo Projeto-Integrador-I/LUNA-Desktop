@@ -13,9 +13,8 @@ pagesList.setAttribute('class', 'footer_options')
 
 const pagesItems = [
   { href: 'About/index.html', text: 'Sobre' },
-  { href: 'Contact/index.html', text: 'Contato' },
-  { href: 'TermsOfUse/index.html', text: 'Termos de Uso' },
-  { href: 'PrivacyPolicy/index.html', text: 'Política de Privacidade' }
+  { href: 'ContactUs/index.html', text: 'Fale Conosco' },
+  { href: '', text: 'Políticas de Privacidade' }
 ]
 
 let pageItem, pageLink
@@ -26,7 +25,10 @@ pagesItems.forEach(item => {
 
   pageLink.setAttribute('class', 'footer_option')
 
-  pageLink.href = `../${item.href}`
+  if (item.href) {
+    pageLink.href = `../${item.href}`
+  }
+
   pageLink.innerHTML = item.text
 
   pageItem.appendChild(pageLink)
