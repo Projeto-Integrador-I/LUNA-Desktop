@@ -19,6 +19,19 @@ if (lists.length > 0) {
     const hover = document.createElement("img");
     const label = document.createElement("label");
 
+    const modal = document.createElement("div");
+    const edit = document.createElement("p");
+    const remove = document.createElement("p");
+
+    modal.setAttribute("class", "card_modal");
+
+    modal.style.display = "none"
+    edit.innerHTML = "Editar";
+    remove.innerHTML = "Excluir";
+
+    modal.appendChild(edit);
+    modal.appendChild(remove);
+
     img.setAttribute("src", "../../../assets/white_logo.svg");
     hover.setAttribute("src", "../../../assets/editHover.svg");
     label.innerHTML = list.name;
@@ -28,16 +41,23 @@ if (lists.length > 0) {
     hover.setAttribute("class", "card_hover");
     label.setAttribute("class", "card_label");
 
+
     card.onmouseenter = () => {
       hover.style.display = "flex";
     }
 
     card.onmouseleave = () => {
       hover.style.display = "none";
+      modal.style.display = "none"
+    }
+
+    hover.onclick = () => {
+      modal.style.display = modal.style.display === "none" ? "flex" : "none";
     }
 
     card.appendChild(img);
     card.appendChild(hover);
+    card.appendChild(modal)
     card.appendChild(label);
     pageList.appendChild(card);
   });
