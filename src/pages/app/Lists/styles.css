@@ -73,13 +73,12 @@ body {
   display: none;
 }
 
-.display-flex {
-  display: flex;
-}
-
 #list {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px 0px;
+
+  padding-left: 20px;
 }
 
 .card {
@@ -87,6 +86,8 @@ body {
   height: 400px;
 
   margin-right: 10px;
+
+  position: relative;
 
   display: flex;
   justify-content: center;
@@ -98,13 +99,21 @@ body {
   background-color: rgba(0, 0, 0, 0.267);
 }
 
-.card img {
+.card_img {
   height: 60%;
   width: 60%;
   margin-bottom: 40%;
 }
 
-.card-label {
+.card_hover {
+  display: none;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card_label {
   font-size: 20px;
   font-weight: 500;
   background-color: #000000;
@@ -118,14 +127,13 @@ body {
   border-radius: 0 0 10px 10px;
 }
 
-.card-label:hover {
+.card_label:hover {
   cursor: pointer;
 }
 
 #main_create_btn {
   width: 250px;
   height: 400px;
-  margin-top: 16px;
 
   display: flex;
   align-items: center;
@@ -161,8 +169,7 @@ body {
 
   overflow: auto;
 
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #00000066;
 }
 
 .modal_content {

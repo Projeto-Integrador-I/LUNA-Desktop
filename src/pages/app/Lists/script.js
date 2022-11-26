@@ -16,18 +16,45 @@ if (lists.length > 0) {
   lists.forEach(list => {
     const card = document.createElement("li");
     const img = document.createElement("img");
+    const hover = document.createElement("img");
     const label = document.createElement("label");
 
-    img.setAttribute("src", "../../../assets/white_logo.svg")
+    img.setAttribute("src", "../../../assets/white_logo.svg");
+    hover.setAttribute("src", "../../../assets/editHover.svg");
     label.innerHTML = list.name;
 
     card.setAttribute("class", "card");
-    label.setAttribute("class", "card-label");
+    img.setAttribute("class", "card_img");
+    hover.setAttribute("class", "card_hover");
+    label.setAttribute("class", "card_label");
 
-    card.appendChild(img)
+    card.onmouseenter = () => {
+      hover.style.display = "flex";
+    }
+
+    card.onmouseleave = () => {
+      hover.style.display = "none";
+    }
+
+    card.appendChild(img);
+    card.appendChild(hover);
     card.appendChild(label);
     pageList.appendChild(card);
   });
+
+  /* Add Button */
+  const createCard = document.createElement("li");
+  const createImg = document.createElement("img");
+  const createLabel = document.createElement("h2");
+
+  createImg.setAttribute("src", "../../../assets/plus.png");
+  createLabel.innerHTML = "Criar Lista";
+
+  createCard.setAttribute("id", "main_create_btn");
+  createCard.appendChild(createImg);
+  createCard.appendChild(createLabel);
+
+  pageList.appendChild(createCard)
 }
 
 /* Modal */
