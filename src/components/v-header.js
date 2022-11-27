@@ -23,7 +23,7 @@ navList.setAttribute('class', 'menu-options')
 const navItems = [
   { href: 'Home/index.html', text: 'Home' },
   { href: 'Lists/index.html', text: 'Listas' },
-  { href: 'Search/index.html', text: 'Pesquisas' }
+  { href: 'Search/index.html#tudo', text: 'Pesquisas' }
 ]
 
 let navItem, navLink
