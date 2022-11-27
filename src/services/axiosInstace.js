@@ -2,7 +2,6 @@
 //const url = 'http://26.2.1.64:8080/luna/'
  const instance = axios.create({
     baseURL : 'http://26.2.1.64:8080/luna/',
-    headers: { 'Content-Type': 'application/json' }
  })
  instance.interceptors.request.use((config) => {
     let token = localStorage.getItem('luna/authenticate')
