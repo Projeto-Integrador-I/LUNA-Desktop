@@ -85,6 +85,9 @@ function createModal() {
     modal_add.setAttribute('id','modal_add');
 
     modal_add_to_list.setAttribute('id','modal_add-to-list');
+    modal_add_to_list.innerHTML = 'Adicionar a lista';
+
+    modal_add.appendChild(modal_add_to_list);
 
     modal_midia.appendChild(modal_title);
     modal_midia.appendChild(modal_info);

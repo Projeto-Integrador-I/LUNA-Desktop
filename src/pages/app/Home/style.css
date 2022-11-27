@@ -246,31 +246,25 @@ body {
   position: fixed;
   bottom: 30px;
 }
+
 #modal_add-to-list {
-  min-width: 130px;
-  height: 40px;
+  width: 150px;
+  height: 35px;
+
+  background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
   color: #fff;
-  padding: 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  bottom: 10px;
- 
-  display: inline-block;
-  outline: none;
-  border-radius: 15px;
+
+  font-size: 18px;
+
+  margin-left: 5px;
+
   border: none;
-  background: #3d348b;
-  box-shadow: 0 5px #2c0b8e;
+  border-radius: 5px;
 }
 
 #modal_add-to-list:hover {
-  box-shadow: 0 3px #2c0b8e;
-  top: 1px;
-}
-#modal_add-to-list:active {
-  box-shadow: 0 0 #2c0b8e;
-  top: 5px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
 }
 
 .return{
