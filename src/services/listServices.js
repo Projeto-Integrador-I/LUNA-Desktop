@@ -17,9 +17,10 @@ export class ListService {
       .catch(err => console.error(err))
   }
 
-  static updateList(name, desc) {
-    instance.put('mediaLists/' + 1, {
+  static updateList(listId, name, desc, userId) {
+    instance.put(`mediaLists/${listId}`, {
       name: name,
+      userId: userId,
       description: desc
     })
       .then(res => console.log('Update OK'))

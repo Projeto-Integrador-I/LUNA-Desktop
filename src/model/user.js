@@ -15,24 +15,24 @@ let u = new User();
 }
 */
 export class User {
-  constructor(){
+  constructor() {
     getUser();
   }
- 
+
   get getId() {
-    return getUser().then((user) => { return user.id } );
+    return getUser().then((user) => { return user.id });
   }
 
   get getLogin() {
-    return getUser().then( (user) => { return user.login } );
+    return getUser().then((user) => { return user.login });
   }
 
   get getEmail() {
-    return getUser().then( (user) => { return user.email } );;
+    return getUser().then((user) => { return user.email });
   }
 
   get getName() {
-    return getUser().then( (user) => { return user.name } );;
+    return getUser().then((user) => { return user.name });
   }
 
   // set Login(login) {
@@ -50,10 +50,10 @@ export class User {
   // set Password(password) {
   //   user.password = password;
   // }
-  
+
 }
 
 function getUser() {
- let user = UserService.getUser(localStorage.getItem('luna/username'));
- return user;
+  let user = UserService.getUser(localStorage.getItem('luna/username'));
+  return user;
 }

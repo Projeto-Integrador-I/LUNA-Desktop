@@ -1,7 +1,5 @@
 import instance from './axiosInstace.js'
 
-
-// import { User } from '../model/user.js';
 export class UserService {
   static async getUser(username) {
     let user = JSON;
@@ -10,7 +8,7 @@ export class UserService {
         user = res.data;
       })
       .catch(err => console.log(err))
-      return user;
+    return user;
   }
 
   // função para autenticar o usuário
@@ -24,9 +22,9 @@ export class UserService {
       .then((res) => {
         const token = res.data.token;
         localStorage.setItem('luna/authenticate', token)
-        
+
         localStorage.setItem('luna/username', user);
-        
+
         validation = true;
 
       })
