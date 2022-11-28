@@ -287,6 +287,22 @@ body {
 
 #redirect {
   color: #fff;
-  padding-top: 5px;
+  padding-top: 10px;
   width: 100%;
+}
+
+#div_of_btns{
+  padding-top: 15px;
+}
+
+#redirect_btn{
+  background:  none;
+  border-radius: 10px;
+  width: 90px;
+  height: 20px;
+}
+
+#redirect_btn:hover{
+  cursor: pointer;
+  scale: 1.07;
 }

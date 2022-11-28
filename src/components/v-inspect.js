@@ -1,7 +1,7 @@
 import { ListService } from "../services/listServices.js"
-import { createListSelector } from "./v-listSelector.js"
+//import { createListSelector } from "./v-listSelector.js"
+import { Redirect } from './v-redirect.js';
 
-//criar isso dentro de   <div id="modal_midia" class="modal">
 let actualMedia
 
 const modal_midia = document.getElementById('modal_midia')
@@ -23,8 +23,7 @@ const modal_div_button = document.createElement('div')
 const modal_return = document.createElement('button')
 const modal_add = document.createElement('div')
 const modal_add_to_list = document.createElement('button')
-//ter o modal pronto já
-//quando clicar na mídia lá na pag v-card, mandar informações para atualizar aqui.
+const redirect_btn = document.createElement('button');
 
 modal_title.setAttribute('id', 'modal_title')
 
@@ -63,7 +62,11 @@ redirect.innerHTML = "Onde consumir: "
 
 modal_info.appendChild(redirect)
 
+redirect_btn.setAttribute('id','redirect_btn')
+
 div_of_btns.setAttribute('id', 'div_of_btns')
+
+div_of_btns.appendChild(redirect_btn)
 
 modal_info.appendChild(div_of_btns)
 
@@ -99,6 +102,9 @@ modal_midia.appendChild(modal_div_button)
 modal_midia.appendChild(modal_add)
 modal_midia.style.display = 'none'
 
+let redirections = new Redirect;
+
+
 export function movieInfo(movie) {
   actualMedia = movie
 
@@ -108,7 +114,11 @@ export function movieInfo(movie) {
   box_info_2.innerHTML = 'Genres: ' + movie.genres
   box_info_3.innerHTML = 'Companies: ' + movie.productionCompanies
   box_info_4.innerHTML = movie.overView
+  redirect_btn.innerHTML = redirections.amazon;
+  redirect_btn.link = movie.webLink;
+
   modal_midia.style.display = 'block'
+
 }
 
 export function gameInfo(game) {
@@ -120,6 +130,9 @@ export function gameInfo(game) {
   box_info_2.innerHTML = 'Developers: ' + game.developers
   box_info_3.innerHTML = 'Publishers: ' + game.publishers
   box_info_4.innerHTML = game.desc
+  redirect_btn.innerHTML = redirections.steam
+  redirect_btn.link = game.webLink
+  
   modal_midia.style.display = 'block'
 }
 export function tvInfo(tv) {
@@ -130,5 +143,18 @@ export function tvInfo(tv) {
   box_info_1.innerHTML = 'Genres: ' + tv.genres
   box_info_2.innerHTML = 'Companies: ' + tv.productionCompanies
   box_info_4.innerHTML = tv.overView
+  redirect_btn.innerHTML = redirections.prime;
+  redirect_btn.link = tv.webLink;
+  
+
   modal_midia.style.display = 'block'
+}
+
+redirect_btn.onclick = (event) => {
+  window.open(redirect_btn.link);
+}
+
+modal_return.onclick = (event) => {
+  modal_midia.style.display = 'none';
+
 }
