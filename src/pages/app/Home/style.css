@@ -199,7 +199,7 @@ body {
   padding: 3%;
 }
 
-#modal_title{
+#modal_title {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -210,36 +210,34 @@ body {
   color: #fff;
 }
 
-#modal_info{
-  
+#modal_info {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100%;
   grid-column-gap: 5px;
 }
 
-#modal_poster{
+#modal_poster {
   max-width: 100%;
   max-height: 100%;
   border-radius: 10px;
 }
 
-#modal_specific-info{
- padding-left: 10px;
- color: #fff;
+#modal_specific-info {
+  padding-left: 10px;
+  color: #fff;
 }
 
-#modal_extra-info{
+#modal_extra-info {
   height: auto;
   color: #fff;
   padding-bottom: 100px;
 }
-#modal_div-button{
-  
+#modal_div-button {
   display: flex;
   justify-content: center;
 }
-#modal_add{
+#modal_add {
   width: 430px;
   display: flex;
   justify-content: center;
@@ -267,7 +265,7 @@ body {
   background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
 }
 
-.return{
+.return {
   border: none;
   top: 20px;
   left: 30px;
@@ -278,16 +276,16 @@ body {
   color: #fff;
 }
 
-.return::after{
+.return::after {
   content: "\1F860";
 }
 
-.return:hover{
+.return:hover {
   scale: 1.09;
   cursor: pointer;
 }
 
-#redirect{
+#redirect {
   color: #fff;
   padding-top: 5px;
   width: 100%;

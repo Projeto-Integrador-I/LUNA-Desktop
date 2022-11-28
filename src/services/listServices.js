@@ -18,6 +18,8 @@ export class ListService {
   }
 
   static updateList(listId, name, desc, userId) {
+    console.log(listId, name, desc, userId);
+
     instance.put(`mediaLists/${listId}`, {
       name: name,
       userId: userId,
@@ -30,6 +32,18 @@ export class ListService {
   static deleteList(id) {
     instance.delete(`mediaLists/${id}`)
       .then(res => console.log('Delete OK'))
+      .catch(err => console.error(err));
+  }
+
+  static getMediasFromList(listId) {
+    instance.get(`mediaLists/${listId}/medias`)
+      .then(res => console.log(res.data))
+      .catch(err => console.error(err));
+  }
+
+  static addMediaToList(listId, mediaId) {
+    instance.post(`mediaLists/${listId}/medias/${mediaId}`)
+      .then(res => console.log(`Media ${mediaId} added to List ${listId}`))
       .catch(err => console.error(err));
   }
 }

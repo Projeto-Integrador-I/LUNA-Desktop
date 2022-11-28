@@ -73,19 +73,73 @@ body {
   display: none;
 }
 
-#list {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-gap: 10px 0px;
+.main_container {
+  overflow-y: scroll;
+  height: 100vh;
+}
 
-  padding-left: 20px;
+#list {
+  padding: 3.75%;
+  display: grid;
+
+  justify-items: center;
+
+  grid-template-columns: 100%;
+  grid-column-gap: 5%;
+  grid-row-gap: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+  #list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 47%);
+    justify-items: center;
+  }
+}
+
+@media only screen and (min-width: 785px) {
+  #list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 30%);
+    justify-items: center;
+  }
+}
+
+@media only screen and (min-width: 1110px) {
+  #list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20%);
+    justify-items: center;
+  }
+}
+
+@media only screen and (min-width: 1375px) {
+  #list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 15%);
+    justify-items: center;
+  }
+}
+
+@media only screen and (min-width: 1620px) {
+  #list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 12%);
+    justify-items: center;
+  }
+}
+
+@media only screen and (min-width: 1830px) {
+  #list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 10%);
+    justify-content: center;
+  }
 }
 
 .card {
   width: 250px;
   height: 400px;
-
-  margin-right: 10px;
 
   position: relative;
 
@@ -96,7 +150,7 @@ body {
   cursor: pointer;
 
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.267);
+  background-color: #00000044;
 }
 
 .card_img {
@@ -177,7 +231,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
 
-  background-color: rgba(0, 0, 0, 0.267);
+  background-color: #00000044;
 }
 
 #main_create_btn h2 {

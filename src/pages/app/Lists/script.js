@@ -147,9 +147,9 @@ function openEditListModal(listId, name, desc, userId) {
   }
 
   add.onclick = async () => {
-    await ListService.updateList(listId, name, desc, userId)
-    // modal.style.display = 'none'
-    // location.reload()
+    ListService.updateList(listId, fieldName.value, fieldDesc.value, userId)
+    modal.style.display = 'none'
+    location.reload()
   }
 }
 
@@ -172,10 +172,8 @@ function clearFields() {
 
 window.onclick = (event) => {
   if (event.target == modal) {
-    modal.style.display = 'none'
-
     clearFields()
-
+    modal.style.display = 'none'
     location.reload()
   }
 }
