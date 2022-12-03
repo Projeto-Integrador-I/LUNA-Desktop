@@ -1,10 +1,12 @@
-import { ListService } from "../services/listServices.js"
-//import { createListSelector } from "./v-listSelector.js"
+// import { ListService } from "../services/listServices.js"
+// import { MediaService } from "../services/mediaServices.js"
+// import { openAddListModal } from "./v-listSelector.js"
 import { Redirect } from './v-redirect.js';
 
 let actualMedia
 
 const modal_midia = document.getElementById('modal_midia')
+const modal_content = document.createElement('div')
 const modal_title = document.createElement('div')
 const modal_info = document.createElement('div')
 const modal_poster = document.createElement('img')
@@ -21,9 +23,12 @@ const modal_extra_info = document.createElement('div')
 const box_info_4 = document.createElement('h5')
 const modal_div_button = document.createElement('div')
 const modal_return = document.createElement('button')
+const return_img = document.createElement('img')
 const modal_add = document.createElement('div')
 const modal_add_to_list = document.createElement('button')
 const redirect_btn = document.createElement('button');
+
+modal_content.setAttribute('id', 'modal_content')
 
 modal_title.setAttribute('id', 'modal_title')
 
@@ -62,7 +67,7 @@ redirect.innerHTML = "Onde consumir: "
 
 modal_info.appendChild(redirect)
 
-redirect_btn.setAttribute('id','redirect_btn')
+redirect_btn.setAttribute('id', 'redirect_btn')
 
 div_of_btns.setAttribute('id', 'div_of_btns')
 
@@ -80,8 +85,12 @@ modal_info.appendChild(modal_extra_info)
 
 modal_div_button.setAttribute('id', 'modal_div-button')
 
+return_img.setAttribute('src', '../../../assets/return.svg')
+
 modal_return.setAttribute('id', 'modal_return')
 modal_return.setAttribute('class', 'return')
+
+modal_return.appendChild(return_img)
 
 modal_div_button.appendChild(modal_return)
 modal_info.appendChild(modal_div_button)
@@ -93,17 +102,31 @@ modal_add_to_list.innerHTML = 'Adicionar a lista'
 
 modal_add.appendChild(modal_add_to_list)
 
-modal_midia.appendChild(modal_title)
-modal_midia.appendChild(modal_info)
-modal_midia.appendChild(redirect)
-modal_midia.appendChild(div_of_btns)
-modal_midia.appendChild(modal_extra_info)
-modal_midia.appendChild(modal_div_button)
-modal_midia.appendChild(modal_add)
+modal_content.appendChild(modal_title)
+modal_content.appendChild(modal_info)
+modal_content.appendChild(redirect)
+modal_content.appendChild(div_of_btns)
+modal_content.appendChild(modal_extra_info)
+modal_content.appendChild(modal_div_button)
+modal_content.appendChild(modal_add)
+
+modal_midia.appendChild(modal_content)
 modal_midia.style.display = 'none'
 
 let redirections = new Redirect;
 
+// modal_add_to_list.onclick = openAddListModal
+
+// const media = await MediaService.addMedia(actualMedia)
+
+// console.log(media);
+
+// if (media) {
+//   ListService.addMediaToList(1, media.id)
+
+//   const medias = await ListService.getMediasFromList(1)
+//   console.log(medias);
+// }
 
 export function movieInfo(movie) {
   actualMedia = movie
@@ -117,7 +140,7 @@ export function movieInfo(movie) {
   redirect_btn.innerHTML = redirections.amazon;
   redirect_btn.link = movie.webLink;
 
-  modal_midia.style.display = 'block'
+  modal_midia.style.display = 'flex'
 
 }
 
@@ -132,8 +155,8 @@ export function gameInfo(game) {
   box_info_4.innerHTML = game.desc
   redirect_btn.innerHTML = redirections.steam
   redirect_btn.link = game.webLink
-  
-  modal_midia.style.display = 'block'
+
+  modal_midia.style.display = 'flex'
 }
 export function tvInfo(tv) {
   actualMedia = tv
@@ -145,9 +168,8 @@ export function tvInfo(tv) {
   box_info_4.innerHTML = tv.overView
   redirect_btn.innerHTML = redirections.prime;
   redirect_btn.link = tv.webLink;
-  
 
-  modal_midia.style.display = 'block'
+  modal_midia.style.display = 'flex'
 }
 
 redirect_btn.onclick = (event) => {
@@ -156,5 +178,152 @@ redirect_btn.onclick = (event) => {
 
 modal_return.onclick = (event) => {
   modal_midia.style.display = 'none';
-
 }
+
+// Style --------------------------------------------------------
+const style = document.createElement('style')
+
+style.innerHTML = `
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  right: 0;
+  top: 0;
+
+  position: fixed;
+}
+
+#modal_midia {
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  
+  left: 0;
+  top: 0;
+  
+  position: fixed;
+  
+  width: 100%;
+  height: 100%;
+  
+  background-color: #00000066;
+}
+
+#modal_content {
+  height: 100%;
+  width: 430px;
+  background-color: #000000;
+  padding: 3%;
+}
+
+#modal_title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 22px;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  color: #fff;
+}
+
+#modal_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  grid-column-gap: 5px;
+}
+
+#modal_poster {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+#modal_specific-info {
+  padding-left: 10px;
+  color: #fff;
+}
+
+#modal_extra-info {
+  height: auto;
+  color: #fff;
+  padding-bottom: 100px;
+}
+
+#modal_div-button {
+  display: flex;
+  justify-content: center;
+}
+
+#modal_add {
+  width: 430px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 30px;
+}
+
+#modal_add-to-list {
+  width: 150px;
+  height: 35px;
+
+  background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
+  color: #fff;
+
+  font-size: 18px;
+
+  margin-left: 5px;
+
+  border: none;
+  border-radius: 5px;
+}
+
+#modal_add-to-list:hover {
+  cursor: pointer;
+  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
+}
+
+.return {
+  border: none;
+  top: 20px;
+  right: 25%;
+  background: none;
+  position: absolute;
+  color: #fff;
+}
+
+.return:hover {
+  scale: 1.09;
+  cursor: pointer;
+}
+
+#redirect {
+  color: #fff;
+  padding-top: 10px;
+  width: 100%;
+}
+
+#div_of_btns{
+  padding-top: 15px;
+}
+
+#redirect_btn{
+  background:  none;
+  border-radius: 10px;
+  width: 90px;
+  height: 20px;
+}
+
+#redirect_btn:hover{
+  cursor: pointer;
+  scale: 1.07;
+}
+`
+
+document.head.appendChild(style)
+// --------------------------------------------------------------
