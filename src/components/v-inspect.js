@@ -1,9 +1,7 @@
-// import { ListService } from "../services/listServices.js"
-// import { MediaService } from "../services/mediaServices.js"
 import { getListSelector } from "./v-listSelector.js"
 import { Redirect } from './v-redirect.js';
 
-let actualMedia
+let actualMedia;
 
 const modal_midia = document.getElementById('modal_midia')
 const modal_content = document.createElement('div')
@@ -116,13 +114,18 @@ modal_midia.style.display = 'none'
 let redirections = new Redirect;
 
 modal_add_to_list.onclick = async () => {
-  const newModal = await getListSelector()
+  const newModal = await getListSelector(actualMedia)
 
   modal_midia.appendChild(newModal)
 }
 
 export function movieInfo(movie) {
-  actualMedia = movie
+  actualMedia = {
+    title: movie.title,
+    description: movie.overView,
+    type: movie.type,
+    apiId: movie.apiId
+  }
 
   modal_title.innerHTML = movie.title
   modal_poster.src = movie.coverLink
@@ -138,7 +141,12 @@ export function movieInfo(movie) {
 }
 
 export function gameInfo(game) {
-  actualMedia = game
+  actualMedia = {
+    title: game.name,
+    description: game.desc,
+    type: game.type,
+    apiId: game.apiId
+  }
 
   modal_title.innerHTML = game.name
   modal_poster.src = game.coverLink
@@ -152,7 +160,12 @@ export function gameInfo(game) {
   modal_midia.style.display = 'flex'
 }
 export function tvInfo(tv) {
-  actualMedia = tv
+  actualMedia = {
+    title: tv.title,
+    description: tv.overView,
+    type: tv.type,
+    apiId: tv.apiId
+  }
 
   modal_title.innerHTML = tv.title
   modal_poster.src = tv.coverLink
@@ -165,11 +178,11 @@ export function tvInfo(tv) {
   modal_midia.style.display = 'flex'
 }
 
-redirect_btn.onclick = (event) => {
+redirect_btn.onclick = () => {
   window.open(redirect_btn.link);
 }
 
-modal_return.onclick = (event) => {
+modal_return.onclick = () => {
   modal_midia.style.display = 'none';
 }
 

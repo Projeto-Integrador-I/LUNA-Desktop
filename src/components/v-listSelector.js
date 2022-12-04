@@ -1,5 +1,6 @@
-import { User } from '../model/user.js'
+import { MediaService } from '../services/mediaServices.js'
 import { ListService } from '../services/listServices.js'
+import { User } from '../model/user.js'
 
 const modal = document.createElement('div')
 modal.setAttribute('class', 'listSelector')
@@ -46,12 +47,15 @@ modal.appendChild(content)
 const user = new User();
 const userId = await user.getId;
 
+let selectedMedia
 let selectedList
 let selectedElement
 
-export async function getListSelector() {
+export async function getListSelector(media) {
   modal.style.display = 'flex'
   error.innerHTML = ''
+
+  selectedMedia = media
 
   const lists = await ListService.getLists()
 
@@ -84,17 +88,7 @@ export async function getListSelector() {
       }
     });
 
-    add.onclick = () => {
-      error.innerHTML = ''
-
-      console.log(selectedList);
-
-      if (!selectedList) {
-        error.innerHTML = 'Selecione uma Lista!'
-      }
-
-      console.log('Add');
-    }
+    add.onclick = addMediaToList
 
     cancel.onclick = () => {
       selectedList = undefined;
@@ -108,6 +102,34 @@ export async function getListSelector() {
   }
 
   return modal;
+}
+
+async function addMediaToList() {
+  error.innerHTML = ''
+
+  if (selectedMedia && selectedList) {
+    const media = await MediaService.addMedia(selectedMedia)
+
+    const medias = await ListService.getMediasFromList(selectedList.id)
+
+    const result = medias.filter(m => m.apiId === selectedMedia.apiId)
+
+    if (result.length === 0) {
+      ListService.addMediaToList(selectedList.id, media.id)
+
+      if (selectedElement) {
+        selectedElement.setAttribute('id', '')
+      }
+
+      modal.style.display = 'none'
+    } else {
+      error.innerHTML = 'Mídia já presente nessa lista!'
+    }
+  }
+
+  if (!selectedList) {
+    error.innerHTML = 'Selecione uma Lista!'
+  }
 }
 // --------------------------------------------------------------
 
@@ -187,6 +209,7 @@ style.innerHTML = `
     #error {
       color: #fff;
       margin: 10px 0 0 0;
+      font-size: 14px;
     }
     
     .modal_btns {

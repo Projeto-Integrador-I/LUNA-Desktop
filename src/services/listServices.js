@@ -37,12 +37,12 @@ export class ListService {
 
   static getMediasFromList(listId) {
     return instance.get(`mediaLists/${listId}/medias`)
-      .then(res => console.log(res.data))
+      .then(res => res.data)
       .catch(err => console.error(err));
   }
 
   static addMediaToList(listId, mediaId) {
-    instance.post(`mediaLists/1/medias/2`)
+    instance.post(`mediaLists/${listId}/medias/${mediaId}`)
       .then(res => console.log(`Media ${mediaId} added to List ${listId}`))
       .catch(err => console.error(err));
   }
