@@ -3,6 +3,9 @@ import { User } from '../../../model/user.js'
 
 const lists = await ListService.getLists()
 
+const user = new User();
+const userId = await user.getId;
+
 const listsEmptyContainer = document.getElementsByClassName(
   'main_empty_container'
 )
@@ -21,40 +24,43 @@ if (lists.length > 0) {
   const pageList = document.getElementById('list')
 
   lists.forEach(list => {
-    const card = document.createElement('li')
-    const img = document.createElement('img')
-    const hover = document.createElement('img')
-    const label = document.createElement('label')
 
-    const modal = createListEditModal(list)
+    if (list.userId === userId) {
+      const card = document.createElement('li')
+      const img = document.createElement('img')
+      const hover = document.createElement('img')
+      const label = document.createElement('label')
 
-    img.setAttribute('src', '../../../assets/white_logo.svg')
-    hover.setAttribute('src', '../../../assets/editHover.svg')
-    label.innerHTML = list.name
+      const modal = createListEditModal(list)
 
-    card.setAttribute('class', 'card')
-    img.setAttribute('class', 'card_img')
-    hover.setAttribute('class', 'card_hover')
-    label.setAttribute('class', 'card_label')
+      img.setAttribute('src', '../../../assets/white_logo.svg')
+      hover.setAttribute('src', '../../../assets/editHover.svg')
+      label.innerHTML = list.name
 
-    card.onmouseenter = () => {
-      hover.style.display = 'flex'
+      card.setAttribute('class', 'card')
+      img.setAttribute('class', 'card_img')
+      hover.setAttribute('class', 'card_hover')
+      label.setAttribute('class', 'card_label')
+
+      card.onmouseenter = () => {
+        hover.style.display = 'flex'
+      }
+
+      card.onmouseleave = () => {
+        hover.style.display = 'none'
+        modal.style.display = 'none'
+      }
+
+      hover.onclick = () => {
+        modal.style.display = modal.style.display === 'none' ? 'flex' : 'none'
+      }
+
+      card.appendChild(img)
+      card.appendChild(hover)
+      card.appendChild(modal)
+      card.appendChild(label)
+      pageList.appendChild(card)
     }
-
-    card.onmouseleave = () => {
-      hover.style.display = 'none'
-      modal.style.display = 'none'
-    }
-
-    hover.onclick = () => {
-      modal.style.display = modal.style.display === 'none' ? 'flex' : 'none'
-    }
-
-    card.appendChild(img)
-    card.appendChild(hover)
-    card.appendChild(modal)
-    card.appendChild(label)
-    pageList.appendChild(card)
   })
 
   function createListEditModal(list) {

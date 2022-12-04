@@ -1,6 +1,6 @@
 // import { ListService } from "../services/listServices.js"
 // import { MediaService } from "../services/mediaServices.js"
-// import { openAddListModal } from "./v-listSelector.js"
+import { getListSelector } from "./v-listSelector.js"
 import { Redirect } from './v-redirect.js';
 
 let actualMedia
@@ -115,18 +115,11 @@ modal_midia.style.display = 'none'
 
 let redirections = new Redirect;
 
-// modal_add_to_list.onclick = openAddListModal
+modal_add_to_list.onclick = async () => {
+  const newModal = await getListSelector()
 
-// const media = await MediaService.addMedia(actualMedia)
-
-// console.log(media);
-
-// if (media) {
-//   ListService.addMediaToList(1, media.id)
-
-//   const medias = await ListService.getMediasFromList(1)
-//   console.log(medias);
-// }
+  modal_midia.appendChild(newModal)
+}
 
 export function movieInfo(movie) {
   actualMedia = movie
