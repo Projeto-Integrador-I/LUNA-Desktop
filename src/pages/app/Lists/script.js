@@ -17,13 +17,13 @@ async function getUserId() {
   return user.getId
 }
 
+const itemList = document.getElementById('list')
+
 if (lists.length > 0) {
   listsEmptyContainer[0].setAttribute('class', 'display-none')
   listContainer[0].setAttribute('class', 'display-flex')
 
-  const pageList = document.getElementById('list')
-
-  lists.forEach(list => {
+  lists.forEach((list, index) => {
 
     if (list.userId === userId) {
       const card = document.createElement('li')
@@ -42,6 +42,12 @@ if (lists.length > 0) {
       hover.setAttribute('class', 'card_hover')
       label.setAttribute('class', 'card_label')
 
+      img.onclick = async () => {
+        itemList.replaceChildren()
+
+        await createPageList(list)
+      }
+
       card.onmouseenter = () => {
         hover.style.display = 'flex'
       }
@@ -59,9 +65,50 @@ if (lists.length > 0) {
       card.appendChild(hover)
       card.appendChild(modal)
       card.appendChild(label)
-      pageList.appendChild(card)
+      itemList.appendChild(card)
+    }
+
+    if ((lists.length - 1) === index) {
+      createAddButton()
     }
   })
+
+  async function createPageList(list) {
+    const medias = await ListService.getMediasFromList(list.id)
+
+    if (medias.length > 0) {
+      const header = document.getElementById('mediaHeader')
+      const returnBtn = document.createElement('img')
+      const title = document.createElement('h2')
+
+      returnBtn.setAttribute('src', '../../../assets/return.svg')
+      returnBtn.setAttribute('class', 'header_return')
+
+      title.setAttribute('class', 'header_title')
+      title.innerHTML = list.name
+
+      returnBtn.onclick = () => {
+        location.reload()
+      }
+
+      header.appendChild(returnBtn)
+      header.appendChild(title)
+
+      medias.forEach((media) => {
+        const card = document.createElement('li')
+        const img = document.createElement('img')
+
+        img.setAttribute('src', media.coverLink)
+
+        card.setAttribute('class', 'card')
+        img.setAttribute('class', 'media_img')
+
+        card.appendChild(img)
+
+        itemList.appendChild(card)
+      })
+    }
+  }
 
   function createListEditModal(list) {
     const modal = document.createElement('div')
@@ -89,8 +136,9 @@ if (lists.length > 0) {
 
     return modal
   }
+}
 
-  /* Add Button */
+function createAddButton() {
   const createCard = document.createElement('li')
   const createImg = document.createElement('img')
   const createLabel = document.createElement('h2')
@@ -102,7 +150,7 @@ if (lists.length > 0) {
   createCard.appendChild(createImg)
   createCard.appendChild(createLabel)
 
-  pageList.appendChild(createCard)
+  itemList.appendChild(createCard)
 }
 
 /* Modal */

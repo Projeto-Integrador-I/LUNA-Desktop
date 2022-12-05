@@ -124,6 +124,7 @@ export function movieInfo(movie) {
     title: movie.title,
     description: movie.overView,
     type: movie.type,
+    coverLink: movie.coverLink,
     apiId: movie.apiId
   }
 
@@ -145,6 +146,7 @@ export function gameInfo(game) {
     title: game.name,
     description: game.desc,
     type: game.type,
+    coverLink: game.coverLink,
     apiId: game.apiId
   }
 
@@ -164,6 +166,7 @@ export function tvInfo(tv) {
     title: tv.title,
     description: tv.overView,
     type: tv.type,
+    coverLink: tv.coverLink,
     apiId: tv.apiId
   }
 
