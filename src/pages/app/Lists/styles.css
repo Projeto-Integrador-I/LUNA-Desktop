@@ -74,12 +74,13 @@ body {
 }
 
 .display-flex {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 100vh;
 }
 
 #list {
   padding: 3.75%;
+  padding-top: 0;
   display: grid;
 
   justify-items: center;
@@ -87,6 +88,8 @@ body {
   grid-template-columns: 100%;
   grid-column-gap: 5%;
   grid-row-gap: 20px;
+
+  margin-bottom: 50px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -256,6 +259,25 @@ body {
 #main_create_btn h2 {
   color: #fff;
   font-weight: 400;
+}
+
+#emptyList {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.emptyListDiv {
+  margin-top: 100px;
+}
+
+.emptyText {
+  font-size: 35px;
+}
+
+.emptyBtn {
+  width: 15% !important;
+  font-size: 25px !important;
 }
 
 /* Modal */

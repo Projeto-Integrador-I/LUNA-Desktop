@@ -24,7 +24,6 @@ if (lists.length > 0) {
   listContainer[0].setAttribute('class', 'display-flex')
 
   lists.forEach((list, index) => {
-
     if (list.userId === userId) {
       const card = document.createElement('li')
       const img = document.createElement('img')
@@ -44,6 +43,24 @@ if (lists.length > 0) {
 
       img.onclick = async () => {
         itemList.replaceChildren()
+
+        const header = document.getElementById('mediaHeader')
+
+        const returnBtn = document.createElement('img')
+        const title = document.createElement('h2')
+
+        returnBtn.setAttribute('src', '../../../assets/return.svg')
+        returnBtn.setAttribute('class', 'header_return')
+
+        title.setAttribute('class', 'header_title')
+        title.innerHTML = list.name
+
+        returnBtn.onclick = () => {
+          location.reload()
+        }
+
+        header.appendChild(returnBtn)
+        header.appendChild(title)
 
         await createPageList(list)
       }
@@ -77,36 +94,65 @@ if (lists.length > 0) {
     const medias = await ListService.getMediasFromList(list.id)
 
     if (medias.length > 0) {
-      const header = document.getElementById('mediaHeader')
-      const returnBtn = document.createElement('img')
-      const title = document.createElement('h2')
-
-      returnBtn.setAttribute('src', '../../../assets/return.svg')
-      returnBtn.setAttribute('class', 'header_return')
-
-      title.setAttribute('class', 'header_title')
-      title.innerHTML = list.name
-
-      returnBtn.onclick = () => {
-        location.reload()
-      }
-
-      header.appendChild(returnBtn)
-      header.appendChild(title)
-
       medias.forEach((media) => {
         const card = document.createElement('li')
         const img = document.createElement('img')
+        const hover = document.createElement('img')
 
         img.setAttribute('src', media.coverLink)
+        hover.setAttribute('src', '../../../assets/deleteHover.svg')
 
         card.setAttribute('class', 'card')
         img.setAttribute('class', 'media_img')
+        hover.setAttribute('class', 'card_hover')
+
+        card.onmouseenter = () => {
+          hover.style.display = 'flex'
+        }
+
+        card.onmouseleave = () => {
+          hover.style.display = 'none'
+        }
+
+        hover.onclick = async () => {
+          ListService.deleteMediaToList(list.id, media.id)
+
+          const newLists = await ListService.getLists();
+
+          const newList = newLists.filter(l => l.id === list.id)
+
+          itemList.replaceChildren()
+
+          await createPageList(newList[0])
+        }
 
         card.appendChild(img)
+        card.appendChild(hover)
 
         itemList.appendChild(card)
       })
+    } else {
+      const emptyListDiv = document.getElementById('emptyList')
+      const emptyListImg = document.createElement('img')
+      const emptyListText = document.createElement('h2')
+      const emptyListBtn = document.createElement('button')
+
+      emptyListImg.setAttribute('src', '../../../assets/emptyFolder.svg')
+      emptyListText.innerHTML = 'Essa lista está vazia'
+      emptyListBtn.innerHTML = 'PESQUISAR MÍDIAS'
+
+      emptyListDiv.setAttribute('class', 'emptyListDiv')
+      emptyListText.setAttribute('class', 'emptyText')
+      emptyListBtn.setAttribute('id', 'empty_create_btn')
+      emptyListBtn.setAttribute('class', 'emptyBtn')
+
+      emptyListBtn.onclick = () => {
+        window.location.href = '../Search/index.html#tudo'
+      }
+
+      emptyListDiv.appendChild(emptyListImg)
+      emptyListDiv.appendChild(emptyListText)
+      emptyListDiv.appendChild(emptyListBtn)
     }
   }
 
