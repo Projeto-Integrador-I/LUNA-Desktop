@@ -25,6 +25,9 @@ const return_img = document.createElement('img')
 const modal_add = document.createElement('div')
 const modal_add_to_list = document.createElement('button')
 const redirect_btn = document.createElement('button');
+const redirect_btn2 = document.createElement('button');
+const redirect_btn3 = document.createElement('button');
+
 
 modal_content.setAttribute('id', 'modal_content')
 
@@ -67,9 +70,17 @@ modal_info.appendChild(redirect)
 
 redirect_btn.setAttribute('id', 'redirect_btn')
 
+redirect_btn2.setAttribute('id','redirect_btn2')
+
+redirect_btn3.setAttribute('id','redirect_btn3')
+
 div_of_btns.setAttribute('id', 'div_of_btns')
 
 div_of_btns.appendChild(redirect_btn)
+
+div_of_btns.appendChild(redirect_btn2)
+
+div_of_btns.appendChild(redirect_btn3)
 
 modal_info.appendChild(div_of_btns)
 
@@ -128,16 +139,30 @@ export function movieInfo(movie) {
     apiId: movie.apiId
   }
 
-  modal_title.innerHTML = movie.title
-  modal_poster.src = movie.coverLink
-  box_info_1.innerHTML = 'Release: ' + movie.releaseDate
-  box_info_2.innerHTML = 'Genres: ' + movie.genres
-  box_info_3.innerHTML = 'Companies: ' + movie.productionCompanies
-  box_info_4.innerHTML = movie.overView
-  redirect_btn.innerHTML = redirections.amazon;
-  redirect_btn.link = movie.webLink;
+  if (movie.apiId == '1402.0') {
+    redirect_btn2.innerHTML = redirections.netflix;
+    redirect_btn2.link = 'https://www.netflix.com/search?q=forrest%20gump';  
+    redirect_btn2.style.display = 'flex'
+    redirect_btn3.innerHTML = redirections.prime;
+    redirect_btn3.link = 'https://www.primevideo.com/search/ref=atv_sr_sug_9?phrase=forrest%20gump&ie=UTF8';  
+    redirect_btn3.style.display = 'flex'
+  } else {  
+    redirect_btn2.style.display = 'none'
+    redirect_btn3.style.display = 'none'
+  }
+    
+    modal_title.innerHTML = movie.title
+    modal_poster.src = movie.coverLink
+    box_info_1.innerHTML = 'Release: ' + movie.releaseDate
+    box_info_2.innerHTML = 'Genres: ' + movie.genres
+    box_info_3.innerHTML = 'Companies: ' + movie.productionCompanies
+    box_info_4.innerHTML = movie.overView
+    redirect_btn.innerHTML = redirections.tmdb;
+    redirect_btn.link = movie.webLink;
 
-  modal_midia.style.display = 'flex'
+    modal_midia.style.display = 'flex'
+  
+
 }
 
 export function gameInfo(game) {
@@ -169,15 +194,39 @@ export function tvInfo(tv) {
     apiId: tv.apiId
   }
 
-  modal_title.innerHTML = tv.title
-  modal_poster.src = tv.coverLink
-  box_info_1.innerHTML = 'Genres: ' + tv.genres
-  box_info_2.innerHTML = 'Companies: ' + tv.productionCompanies
-  box_info_4.innerHTML = tv.overView
-  redirect_btn.innerHTML = redirections.prime;
-  redirect_btn.link = tv.webLink;
+  if (tv.apiId == '1402.0') {
+    redirect_btn2.innerHTML = redirections.netflix;
+    redirect_btn2.link = 'https://www.netflix.com/search?q=the%20walking%20dead';  
+    redirect_btn2.style.display = 'flex'
+  } else if (tv.apiId == "119051.0"){
+    redirect_btn2.innerHTML = redirections.netflix;
+    redirect_btn2.link = 'https://www.netflix.com/search?q=wandinha';
+    redirect_btn2.style.display = 'flex'
+  } else if (tv.apiId == "90669.0"){
+    redirect_btn2.innerHTML = redirections.netflix;
+    redirect_btn2.link = "https://www.netflix.com/search?q=1899";
+    redirect_btn2.style.display = 'flex'
+  } else if (tv.apiId == "90762.0" || tv.apiId == "2996.0" || tv.apiId == "2316.0"){
+      redirect_btn2.innerHTML = redirections.prime;
+      redirect_btn2.link = "https://www.primevideo.com/search/ref=atv_nb_sr?phrase=the+office&ie=UTF8";
+      redirect_btn2.style.display = 'flex'
+      redirect_btn3.innerHTML = redirections.hbo;
+      redirect_btn3.link = "https://play.hbomax.com/page/urn:hbo:page:GYRsKbA3gmIjDwgEAAAMH:type:series";
+      redirect_btn3.style.display = 'flex'
+  } else {
+    redirect_btn2.style.display = 'none'
+    redirect_btn3.style.display = 'none'
+  }
+    modal_title.innerHTML = tv.title
+    modal_poster.src = tv.coverLink
+    box_info_1.innerHTML = 'Genres: ' + tv.genres
+    box_info_2.innerHTML = 'Companies: ' + tv.productionCompanies
+    box_info_4.innerHTML = tv.overView
+    redirect_btn.innerHTML = redirections.tmdb;
+   
+    redirect_btn.link = tv.webLink;
 
-  modal_midia.style.display = 'flex'
+    modal_midia.style.display = 'flex'
 }
 
 export function bookInfo(book) {
@@ -194,7 +243,7 @@ export function bookInfo(book) {
   box_info_1.innerHTML = 'Categories: ' + book.categories
   box_info_2.innerHTML = 'Publisher: ' + book.publisher
   box_info_4.innerHTML = book.description
-  redirect_btn.innerHTML = redirections.prime;
+  redirect_btn.innerHTML = redirections.googleBooks;
   redirect_btn.link = book.webLink;
 
   modal_midia.style.display = 'flex'
@@ -202,6 +251,14 @@ export function bookInfo(book) {
 
 redirect_btn.onclick = () => {
   window.open(redirect_btn.link);
+}
+
+redirect_btn2.onclick = () => {
+  window.open(redirect_btn2.link);
+}
+
+redirect_btn3.onclick = () => {
+  window.open(redirect_btn3.link);
 }
 
 modal_return.onclick = () => {
@@ -350,16 +407,22 @@ style.innerHTML = `
 
 #div_of_btns{
   padding-top: 15px;
+  justify-content: flex-start;
+  display: flex;
 }
 
-#redirect_btn{
+#redirect_btn,
+#redirect_btn2,
+#redirect_btn3{
   background:  none;
   border-radius: 10px;
-  width: 90px;
+  margin-right: 20px;
   height: 20px;
 }
 
-#redirect_btn:hover{
+#redirect_btn:hover,
+#redirect_btn2:hover,
+#redirect_btn3:hover{
   cursor: pointer;
   scale: 1.07;
 }
