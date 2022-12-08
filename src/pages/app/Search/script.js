@@ -44,18 +44,6 @@ mediaTypes.forEach(option => {
     mediaList.appendChild(mediaType)
 })
 
-// function activePage (event){
-//     console.log;
-//     const url2 = window.location.href
-//     mediaTypes.forEach(page => {
-//         if(url2.includes(page.href)) {
-//             mediaType.setAttribute("class", "mediaType active")
-//             console.log(url2)
-//             console.log(page.href)
-//         }
-//     })
-// }
-
 options.appendChild(mediaList)
 
  

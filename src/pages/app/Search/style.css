@@ -17,6 +17,36 @@ section {
   border-radius: 10px;
 }
 
+.main_empty_container {
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main_empty_container .empty_media {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+.main_empty_container img {
+  width: 50%;
+}
+
+.main_empty_container h4 {
+  font-family: "Inter";
+  color: white;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  margin: 0px 20px 20px 20px;
+  font-weight: 300;
+}
+
+
+
 .row {
   margin-left: 20px;
   color: white;
@@ -176,4 +206,135 @@ section {
   position: relative;
   background-color: #757575;
   border-radius: 10px;
+}
+
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  right: 0;
+  top: 0;
+
+  position: fixed;
+
+  overflow-x: hidden;
+  z-index: 2;
+}
+
+#modal_midia {
+  display: none;
+  height: 100%;
+  width: 430px;
+  background-color: #000000;
+  padding: 3%;
+}
+
+#modal_title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 22px;
+  padding-top: 10%;
+  padding-bottom: 5%;
+  color: #fff;
+}
+
+#modal_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  grid-column-gap: 5px;
+}
+
+#modal_poster {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+#modal_specific-info {
+  padding-left: 10px;
+  color: #fff;
+}
+
+#modal_extra-info {
+  height: auto;
+  color: #fff;
+  padding-bottom: 100px;
+}
+#modal_div-button {
+  display: flex;
+  justify-content: center;
+}
+#modal_add {
+  width: 430px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 30px;
+}
+
+#modal_add-to-list {
+  width: 150px;
+  height: 35px;
+
+  background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
+  color: #fff;
+
+  font-size: 18px;
+
+  margin-left: 5px;
+
+  border: none;
+  border-radius: 5px;
+}
+
+#modal_add-to-list:hover {
+  cursor: pointer;
+  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
+}
+
+.return {
+  border: none;
+  top: 20px;
+  left: 30px;
+  background: none;
+  position: absolute;
+  font-size: 15px;
+  font-size: 30px;
+  color: #fff;
+}
+
+.return::after {
+  content: "\1F860";
+}
+
+.return:hover {
+  scale: 1.09;
+  cursor: pointer;
+}
+
+#redirect {
+  color: #fff;
+  padding-top: 10px;
+  width: 100%;
+}
+
+#div_of_btns{
+  padding-top: 15px;
+}
+
+#redirect_btn{
+  background:  none;
+  border-radius: 10px;
+  width: 90px;
+  height: 20px;
+}
+
+#redirect_btn:hover{
+  cursor: pointer;
+  scale: 1.07;
 }

@@ -138,7 +138,6 @@ export function movieInfo(movie) {
   redirect_btn.link = movie.webLink;
 
   modal_midia.style.display = 'flex'
-
 }
 
 export function gameInfo(game) {
@@ -177,6 +176,26 @@ export function tvInfo(tv) {
   box_info_4.innerHTML = tv.overView
   redirect_btn.innerHTML = redirections.prime;
   redirect_btn.link = tv.webLink;
+
+  modal_midia.style.display = 'flex'
+}
+
+export function bookInfo(book) {
+  actualMedia = {
+    title: book.title,
+    description: book.description,
+    type: book.type,
+    coverLink: book.coverLink,
+    apiId: book.apiId
+  }
+
+  modal_title.innerHTML = book.title
+  modal_poster.src = book.coverLink
+  box_info_1.innerHTML = 'Categories: ' + book.categories
+  box_info_2.innerHTML = 'Publisher: ' + book.publisher
+  box_info_4.innerHTML = book.description
+  redirect_btn.innerHTML = redirections.prime;
+  redirect_btn.link = book.webLink;
 
   modal_midia.style.display = 'flex'
 }
