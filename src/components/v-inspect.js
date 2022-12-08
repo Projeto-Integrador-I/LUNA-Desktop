@@ -228,7 +228,7 @@ export function tvInfo(tv) {
 
     modal_midia.style.display = 'flex'
 }
-
+var bookLinks;
 export function bookInfo(book) {
   actualMedia = {
     title: book.title,
@@ -244,7 +244,8 @@ export function bookInfo(book) {
   box_info_2.innerHTML = 'Publisher: ' + book.publisher
   box_info_4.innerHTML = book.description
   redirect_btn.innerHTML = redirections.googleBooks;
-  redirect_btn.link = book.webLink;
+  bookLinks = 'https://www.google.com/search?q=' + book.title.replaceAll(' ','+') + '+livro'
+  redirect_btn.link = bookLinks;
 
   modal_midia.style.display = 'flex'
 }
