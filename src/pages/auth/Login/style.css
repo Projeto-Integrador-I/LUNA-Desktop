@@ -69,13 +69,17 @@ form > input:focus {
 
   cursor: pointer;
 
-  color: white;
+  color: #fff;
+  background: linear-gradient(to right, #483d7c 0%, #150b43 161.67%);
+
+  transition: 0.5s;
+  background-size: 200% auto;
+
   font-size: 32px;
-  background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
 }
 
 .enter:hover {
-  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
+  background-position: right center;
 }
 
 .text-buttons {

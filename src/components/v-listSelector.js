@@ -220,8 +220,13 @@ style.innerHTML = `
       width: 150px;
       height: 35px;
       
-      background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
       color: #fff;
+      background: linear-gradient(to right, #483d7c 0%, #150b43 161.67%);
+
+      cursor: pointer;
+
+      transition: 0.5s;
+      background-size: 200% auto;
       
       font-size: 18px;
       
@@ -230,10 +235,13 @@ style.innerHTML = `
       border: none;
       border-radius: 5px;
     }
+
+    .modal_btn:focus {
+      outline: none;
+    }
     
     .modal_btn:hover {
-      cursor: pointer;
-      background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
+      background-position: right center;
     }
 `
 

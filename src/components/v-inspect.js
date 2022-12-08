@@ -266,7 +266,7 @@ style.innerHTML = `
 
 #modal_div-button {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 #modal_add {
@@ -281,34 +281,46 @@ style.innerHTML = `
   width: 150px;
   height: 35px;
 
-  background: linear-gradient(180deg, #483d7c 0%, #150b43 161.67%);
   color: #fff;
+  background: linear-gradient(to right, #483d7c 0%, #150b43 161.67%);
+
+  transition: 0.5s;
+  background-size: 200% auto;
 
   font-size: 18px;
 
   margin-left: 5px;
 
+  cursor: pointer;
+
   border: none;
   border-radius: 5px;
 }
 
+#modal_add-to-list:focus {
+  outline: none;
+}
+
 #modal_add-to-list:hover {
-  cursor: pointer;
-  background: linear-gradient(180deg, #30275c 0%, #0d062e 161.67%);
+  background-position: right center;
 }
 
 .return {
   border: none;
   top: 20px;
-  right: 25%;
   background: none;
   position: absolute;
-  color: #fff;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1830px) {
+  .return {
+    right: 25%;
+  }
 }
 
 .return:hover {
   scale: 1.09;
-  cursor: pointer;
 }
 
 #redirect {
